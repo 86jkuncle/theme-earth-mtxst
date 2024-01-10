@@ -8,12 +8,12 @@
     <!-- <div th:text="${link}"></div> -->
 
 
-    <div class="position-fixed p-2" th:style="'z-index: 99;width: 150px;right:0;top:38vh'">
+    <div class="position-fixed p-2" th:style="'z-index: 99;width: 150px;right:0;top:38vh'" th:if="${not #strings.isEmpty(link[0].spec.qrcode)}">
       <img th:src="${link[0].spec.qrcode}" alt="" class="img-thumbnail">
     </div>
 
     <!-- <span th:text="${link.spec.topImage}"></span> -->
-    <section class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" th:style="|background-image:url(${link[0].spec.topImage});height: 800px;
+    <section  th:if="${not #strings.isEmpty(link[0].spec.topImage)}" class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" th:style="|background-image:url(${link[0].spec.topImage});height: 800px;
     background-position: center;
     background-size: cover;|">
     <!-- <img th:src="@{${link.spec.topImage}}" > -->
@@ -25,7 +25,7 @@
       <!-- <span class="mask bg-primary alpha-7"></span> -->
       <div class="container text-center">
         <div class="row cols-xs-space cols-sm-space cols-md-space">
-          <div class="col-12">
+          <div class="col-12" th:if="${not #strings.isEmpty(link[0].spec.topTitle)}">
             <h2 class="heading text-dark h1 strong-600" th:text="${link[0].spec.topTitle}">
               
             </h2>
@@ -36,13 +36,13 @@
 
     <section class="slice slice-sm">
       <div class="container">
-        <div class="text-center">
+        <div class="text-center" th:if="${not #strings.isEmpty(link[0].spec.videoTitle)}">
           <h2 class="heading display-3 font-weight-bold text-primary" th:text="${link[0].spec.videoTitle}"></h2>
         </div>
-        <div class="text-center">
+        <div class="text-center" th:if="${not #strings.isEmpty(link[0].spec.videoSubTitle)}">
           <h3 class="heading h3" th:text="${link[0].spec.videoSubTitle}"></h3>
         </div>
-        <div class="row cols-xs-space cols-sm-space cols-md-space">
+        <div class="row cols-xs-space cols-sm-space cols-md-space" th:if="${not #strings.isEmpty(link[0].spec.videoSrc)}">
           <div class="col-lg-12">
             <!-- <img class="rounded img-fluid" src="./assets/img/product/video.png" alt="Image description"> -->
             <video class="w-100" th:src="${link[0].spec.videoSrc}" muted controls loop></video>
@@ -51,7 +51,7 @@
       </div>
     </section>
 
-    <section class="slice slice-sm">
+    <section class="slice slice-sm" th:if="${not #strings.isEmpty(link[0].spec.featureTitle)}">
       <div class="container">
         <div class="text-center">
           <h2 class="heading display-3 font-weight-bold text-primary" th:text="${link[0].spec.featureTitle}"></h2>
@@ -59,7 +59,7 @@
       </div>
     </section>
 
-    <th:block th:with="featureList = ${link[0].spec.featureList}">
+    <th:block th:with="featureList = ${link[0].spec.featureList}" th:if="${not #lists.isEmpty(link[0].spec.featureList)}">
 
       <section class="slice slice-sm" th:each=" feature ,status: ${featureList}">
         <div class="container">
@@ -86,61 +86,6 @@
 
     </th:block>
 
-    
-    <!-- <div class="container">
-      <div class="row cols-xs-space cols-sm-space align-items-center">
-        <div class="col-md-6">
-          <img th:src="./assets/img/product/图层 153 拷贝.png" class="img-center img-fluid rounded z-depth-3">
-        </div>
-        <div class="col-md-6 col-lg-5 ml-lg-auto bg-secondary p-5">
-          <div class="pr-md-4">
-            <h3 class="heading h3">
-              先煎后下
-            </h3>
-            <p class="lead text-gray mt-4">8窗系列标配停止按键先煎后下可让机器暂停工作不影响煎药过程。
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section class="slice slice-sm">
-      <div class="container">
-        <div class="row cols-xs-space cols-sm-space align-items-center">
-          <div class="col-md-6 order-md-2 ml-lg-auto">
-            <img src="./assets/img/product/图层 155 拷贝.png" class="img-center img-fluid rounded z-depth-3">
-          </div>
-          <div class="col-md-6 col-lg-5 order-md-1 bg-secondary p-5">
-            <div class="pr-md-4">
-              <h3 class="heading h3 ">
-                文、武火自动转换
-              </h3>
-              <p class="lead text-gray mt-4">武火:大而猛，快速让药水沸腾。</p>
-              <p class="lead text-gray mt-4">文火:小而缓，让药物精髓慢慢溶于水中。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slice slice-sm">
-      <div class="container">
-        <div class="row cols-xs-space cols-sm-space align-items-center">
-          <div class="col-md-6">
-            <img src="./assets/img/product/图层 156 拷贝.png" class="img-center img-fluid rounded z-depth-3">
-          </div>
-          <div class="col-md-6 col-lg-5 ml-lg-auto bg-secondary p-5">
-            <div class="pr-md-4">
-              <h3 class="heading h3">
-                无液自动停机
-              </h3>
-              <p class="lead text-gray mt-4">液体包装“无液自动停机”，防止包装材料浪费，避免包装机头塑料卷的粘连。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
     <section class="slice slice-sm">
       <div class="container">
@@ -154,7 +99,7 @@
       <!-- data-spotlight="fullscreen" style="background-image: url('./asset/img/product/微信图片_20230911141738\ 拷贝\ 3.png');" -->
       <div class="container">
 
-        <div class="row-wrapper bg-secondary p-5">
+        <div class="row-wrapper bg-secondary p-5" th:if="${not #lists.isEmpty(link[0].spec.techList)}">
 
           <div class="row justify-content-center align-items-center" th:with="techParaList = ${link[0].spec.techList}">
             <div class="col-lg-4 text-center row justify-content-center align-items-center" th:each=" techPara,status : ${techParaList}"
@@ -165,86 +110,21 @@
                 <a href="" class="h3 text-primary" th:text="${techPara.value}"></a>
               </div>
             </div>
-            <!-- <div class="col-lg-4 text-center row justify-content-center align-items-center">
-              <div>
-                <img src="./assets/img/product/259体积、空间-线性.png" alt="" class="mb-3 img-fluid">
-                <p class="h3">煎药容积</p>
-                <a href="" class="h3 text-primary">20000ml</a>
-              </div>
-            </div>
-            <div class="col-lg-4 text-center row justify-content-center align-items-center">
-              <div>
-                <img src="./assets/img/product/功率.png" alt="" class="mb-3 img-fluid">
-                <p class="h3">额定功率</p>
-                <a href="" class="h3 text-primary">2.8kw</a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 text-center row justify-content-center align-items-center">
-              <div>
-                <img src="./assets/img/product/电压 (2).png" alt="" class="mb-3 img-fluid">
-                <p class="h3">额定电压</p>
-                <a href="" class="h3 text-primary">220V</a>
-              </div>
-            </div>
-            <div class="col-lg-4 text-center row justify-content-center align-items-center">
-              <div>
-                <img src="./assets/img/product/kg 拷贝.png" alt="" class="mb-3 img-fluid">
-                <p class="h3">重量</p>
-                <a href="" class="h3 text-primary">60kg</a>
-              </div>
-            </div>
-            <div class="col-lg-4 text-center row justify-content-center align-items-center">
-              <div>
-                <img src="./assets/img/product/rules.png" alt="" class="mb-3 img-fluid">
-                <p class="h3">外形尺寸</p>
-                <a href="" class="h3 text-primary">600X560X1200mm</a>
-              </div>
-            </div> -->
           </div>
-
-          <!-- <div class="row justify-content-center align-items-center">
-            <div class="col-lg-4 text-center row justify-content-center align-items-center">
-              <div>
-                <img src="./assets/img/product/电压 (2).png" alt="" class="mb-3 img-fluid">
-                <p class="h3">额定电压</p>
-                <a href="" class="h3 text-primary">220V</a>
-              </div>
-            </div>
-            <div class="col-lg-4 text-center row justify-content-center align-items-center">
-              <div>
-                <img src="./assets/img/product/kg 拷贝.png" alt="" class="mb-3 img-fluid">
-                <p class="h3">重量</p>
-                <a href="" class="h3 text-primary">60kg</a>
-              </div>
-            </div>
-            <div class="col-lg-4 text-center row justify-content-center align-items-center">
-              <div>
-                <img src="./assets/img/product/rules.png" alt="" class="mb-3 img-fluid">
-                <p class="h3">外形尺寸</p>
-                <a href="" class="h3 text-primary">600X560X1200mm</a>
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
     </section>
 
     <section class="slice slice-xl" data-delimiter="0">
       <div class="container">
-        <h3 class="text-center mb-5" th:text="${link[0].spec.name}"></h3>
-        <div class="row-wrapper">
+        <h3 class="text-center mb-5" th:text="${link[0].spec.name}" th:if="${not #strings.isEmpty(link[0].spec.name)}"></h3>
+        <div class="row-wrapper" th:if="${not #lists.isEmpty(link[0].spec.footFeature.featureParamList)}">
           <div class="row justify-content-center align-items-center bg-secondary p-5">
             <div class="col-3"><img th:src="${link[0].spec.footFeature.image}"
                 class="img-center img-fluid rounded"></div>
             <div class="col-3">
               <ul class="navbar" th:with = "footTxtParam = ${link[0].spec.footFeature.featureParamList}">
                 <li class="nav-item h6" th:style="'list-style: none;'" th:each=" footTxt : ${footTxtParam} " th:text="${footTxt.desc}"></li>
-                <!-- <li class="nav-item h6" style="list-style: none;">先煎后下</li>
-                <li class="nav-item h6" style="list-style: none;">文/武火切换</li>
-                <li class="nav-item h6" style="list-style: none;">可视煎药</li>
-                <li class="nav-item h6" style="list-style: none;">无液自动停机</li>
-                <li class="nav-item h6" style="list-style: none;">计量精确</li> -->
               </ul>
 
               <button type="button" class="btn btn-primary btn-icon-label">
