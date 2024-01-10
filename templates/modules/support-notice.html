@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" th:if="${not #lists.isEmpty(posts.items)}">
   <div class="row-wrapper">
     
     <ul class="list-grou bg-secondary py-3" th:each="post : ${posts.items}">

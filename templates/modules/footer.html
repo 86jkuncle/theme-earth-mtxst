@@ -4,247 +4,48 @@
           <a href="/"><img th:src="@{/assets/images/logo.png}" alt=""></a>
       </div>
 
-      <div class="d-flex align-items-center justify-content-center mb-2">
-          <ul class="nav">
-              <!-- <@nav_root_list>
-        <#list navs as nav>
-        <li class="nav-item <#if nav.url==currentNav.url>  active </#if>">
-          <a class="nav-link font-weight-bolder h6 text-white" href="${nav.url}">${nav.name}</a>
-        </li>
-      </#list>
-    </@nav_root_list> -->
-
+      <div class="d-flex align-items-center justify-content-center mb-2" th:with="menu = ${menuFinder.getPrimary()}">
+          <ul class="nav" th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">
     
-              <li class="nav-item">
-  <a href="#" class="nav-link font-weight-bolder h6 text-white" >煎药机</a>
-                  <!-- <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a> -->
-        
-        
-              </li>
-
-              <li class="nav-item">
-                  <a href="#" class="nav-link font-weight-bolder h6 text-white">制丸机</a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="#" class="nav-link font-weight-bolder h6 text-white">粉碎机</a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="#" class="nav-link font-weight-bolder h6 text-white">探索精彩</a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="#" class="nav-link font-weight-bolder h6 text-white">帮助与支持</a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="#" class="nav-link font-weight-bolder h6 text-white">购买渠道</a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="#" class="nav-link font-weight-bolder h6 text-white">关于我们</a>
-              </li>
+              <li class="nav-item" th:each="menuItem : ${menu.menuItems}" th:classappend="|${not #lists.isEmpty(menuItem.children) ? 'dropdown' : ''}|">
+                <a class="nav-link" th:href="@{${menuItem.status.href}}"
+                th:text="${menuItem.status.displayName}"
+                th:target="${menuItem.spec.target?.value}"
+                th:if="${#lists.isEmpty(menuItem.children)}"
+                ></a>
+                <th:block th:if="${not #lists.isEmpty(menuItem.children)}">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"  th:text="${menuItem.status.displayName}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+                        <a class="dropdown-item" th:target="${childMenuItem.spec.target?.value}" th:text="${childMenuItem.status.displayName}" th:href="@{${childMenuItem.status.href}}" th:each="childMenuItem : ${menuItem.children}"></a>
+                      </div>
+                </th:block>
+            </li>
           </ul>
       </div>
 
       <div class="d-flex align-items-center justify-content-center mb-2">
-          <span class="text-white footer-address">湖南省长沙市岳麓区学士街道玉莲路32号联东优谷工业园一号地9栋202号房</span>
+          <span class="text-white footer-address" th:text="${theme.config.company.address}"></span>
       </div>
 
       <div class="d-flex align-items-center justify-content-center mb-2">
-          <span class="footer-tel text-white">400-021-0988，0731-89576909</span>
+          <span class="footer-tel text-white" th:text="${theme.config.company.tel}"></span>
       </div>
       
-      <!-- <div class="position-relative">
-          
-          
-
-          <div class="position-absolute footer-qrcode h6 text-light">
-              <img src="/assets/images/mall_qr_code.png" alt="">
-          </div>
-
-          <div class="position-absolute footer-address row h6 text-light">
-              
-          </div>
-
-          <div class="footer-tel position-absolute row h6 text-light">
-              
-          </div>
-      </div> -->
 
       <!-- <hr> -->
       <div class="d-flex align-items-center justify-content-center">
           <span class="h6 text-light">
-              <a href="http://www.cszcyl.cn/" class="font-weight-bolder text-light"
+              <a th:href="${theme.config.company.url}" class="font-weight-bolder text-light"
+                href="https://www.cszcyl.cn"
                   target="_blank"
-                  >Copyright © 2023 长沙市卓成医疗器械有限公司。 
+                  th:if="${not #strings.isEmpty(theme.config.company.name)}"
+                  th:text="${theme.config.company.name}"> 
                   <a class="font-weight-bolder text-light"
+                    th:if="${not #strings.isEmpty(theme.config.beian.icp_link)}"
                       href="https://beian.mps.gov.cn/"
                       th:href="${theme.config.beian.icp_link}"
-        th:text="${theme.config.beian.icp_text}">湘ICP备16012283号-2</a>
+        th:text="${theme.config.beian.icp_text}"></a>
           </span>
       </div>
   </div>
 </footer>
-
-
-<!-- 
-<footer th:if="${theme.config.footer.style == 'style_1'}" class="mt-10 bg-white py-8 dark:bg-slate-800">
-  <div class="container mx-auto sm:flex sm:items-center sm:justify-between">
-    <a href="/" class="mb-4 flex items-center justify-center sm:mb-0 sm:justify-start">
-      <img
-        th:if="${not #strings.isEmpty(theme.config.footer.logo)} or ${not #strings.isEmpty(site.logo)}"
-        th:src="${theme.config.footer.logo ?: site.logo}"
-        class="mr-3 h-8 w-8"
-        th:alt="${site.title}"
-      />
-      <span
-        class="self-center whitespace-nowrap text-2xl font-semibold dark:text-slate-50"
-        th:text="${theme.config.footer.title ?: site.title}"
-      >
-      </span>
-    </a>
-    <th:block th:if="${not #strings.isEmpty(theme.config.footer.menu)}">
-      <ul
-        th:with="menu = ${menuFinder.getByName(theme.config.footer.menu)}"
-        class="mb-6 flex flex-wrap items-center justify-center text-sm text-gray-500 dark:text-slate-200 sm:mb-0 sm:justify-start"
-      >
-        <li th:each="menuItem : ${menu.menuItems}">
-          <a
-            th:href="@{${menuItem.status.href}}"
-            class="mr-4 transition-all hover:text-gray-900 hover:underline dark:hover:text-white md:mr-6"
-            th:text="${menuItem.status.displayName}"
-          ></a>
-        </li>
-      </ul>
-    </th:block>
-
-    <th:block th:replace="~{modules/footer-social}" />
-  </div>
-  <hr class="my-6 border-gray-100 dark:border-slate-700 sm:mx-auto lg:my-8" />
-  <div class="space-y-1">
-    <span class="container mx-auto block text-center text-sm text-gray-500 dark:text-slate-300">
-      <a
-        href="https://beian.miit.gov.cn/"
-        class="hover:underline"
-        target="_blank"
-        th:href="${theme.config.beian.icp_link}"
-        th:text="${theme.config.beian.icp_text}"
-      ></a>
-    </span>
-    <div
-      th:if="${not #strings.isEmpty(theme.config.beian.gongan_text)}"
-      class="container mx-auto block text-center text-sm text-gray-500 dark:text-slate-300"
-    >
-      <p class="flex items-center justify-center gap-1">
-        <img th:src="@{/assets/images/gongan_beian.png}" class="h-4 w-4" alt="gongan_beian" />
-        <a
-          href="https://beian.mps.gov.cn/#/query/webSearch"
-          class="hover:underline"
-          target="_blank"
-          th:href="${theme.config.beian.gongan_link}"
-          th:text="${theme.config.beian.gongan_text}"
-        ></a>
-      </p>
-    </div>
-    <span class="container mx-auto block text-center text-sm text-gray-500 dark:text-slate-300">
-      ©
-      <th:block th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}" />
-      <a href="/" class="hover:underline" th:text="${site.title}"></a>. All Rights Reserved. Powered by
-      <a href="https://halo.run" class="hover:underline" target="_blank">Halo</a>.
-    </span>
-    <span class="container mx-auto block text-center text-sm text-gray-500 dark:text-slate-300">
-      <halo:footer />
-    </span>
-  </div>
-</footer>
-
-<footer th:if="${theme.config.footer.style == 'style_2'}" class="mt-10 bg-white py-8 dark:bg-slate-800">
-  <div class="container mx-auto md:flex md:justify-between md:gap-10">
-    <div class="mb-6 max-w-full md:mb-0 md:max-w-md">
-      <a href="/" class="mb-6 flex items-center">
-        <img
-          th:if="${not #strings.isEmpty(theme.config.footer.logo)} or ${not #strings.isEmpty(site.logo)}"
-          th:src="${theme.config.footer.logo ?: site.logo}"
-          class="mr-3 h-8"
-          th:alt="${site.title}"
-        />
-        <span
-          class="self-center whitespace-nowrap text-2xl font-semibold dark:text-slate-50"
-          th:text="${theme.config.footer.title ?: site.title}"
-        ></span>
-      </a>
-      <span
-        th:if="${not #strings.isEmpty(theme.config.footer.slogan)}"
-        class="text-sm font-light text-gray-600 dark:text-slate-200"
-        th:text="${theme.config.footer.slogan}"
-      >
-      </span>
-    </div>
-    <div
-      th:if="${not #lists.isEmpty(theme.config.footer.menus)}"
-      class="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-12"
-    >
-      <th:block th:each="menuName : ${theme.config.footer.menus}">
-        <div th:with="menu = ${menuFinder.getByName(menuName.name)}">
-          <h2
-            class="mb-6 text-sm font-semibold text-gray-900 dark:text-slate-50"
-            th:text="${menu.spec.displayName}"
-          ></h2>
-          <ul th:with="menuItems = ${menu.menuItems}" class="text-sm text-gray-500 dark:text-slate-200">
-            <li th:each="menuItem : ${menuItems}" class="mb-4">
-              <a
-                th:href="@{${menuItem.status.href}}"
-                class="transition-all hover:text-gray-900 hover:underline dark:hover:text-white"
-                th:text="${menuItem.spec.displayName}"
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </th:block>
-    </div>
-  </div>
-  <hr class="my-6 border-gray-200 dark:border-slate-700 sm:mx-auto lg:my-8" />
-  <div class="container mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between">
-    <div class="flex flex-col space-y-1 text-center sm:text-left">
-      <span class="text-sm text-gray-500 dark:text-slate-300 sm:text-center">
-        ©
-        <th:block th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}" />
-        <a href="/" class="hover:underline" th:text="${site.title}"></a>. All Rights Reserved. Powered by
-        <a href="https://halo.run" class="hover:underline" target="_blank">Halo</a>.
-      </span>
-
-      <div class="flex flex-col gap-1 sm:flex-row">
-        <span class="block text-center text-sm text-gray-500 sm:text-left">
-          <a
-            href="https://beian.miit.gov.cn/"
-            class="hover:underline"
-            target="_blank"
-            th:href="${theme.config.beian.icp_link}"
-            th:text="${theme.config.beian.icp_text}"
-          ></a>
-        </span>
-        <div
-          th:if="${not #strings.isEmpty(theme.config.beian.gongan_text)}"
-          class="inline-flex items-center justify-center gap-1 text-sm text-gray-500 sm:justify-start"
-        >
-          <img th:src="@{/assets/images/gongan_beian.png}" class="h-4 w-4" alt="gongan_beian" />
-          <a
-            href="https://beian.mps.gov.cn/#/query/webSearch"
-            class="hover:underline"
-            target="_blank"
-            th:href="${theme.config.beian.gongan_link}"
-            th:text="${theme.config.beian.gongan_text}"
-          ></a>
-        </div>
-      </div>
-
-      <p class="text-sm text-gray-500 dark:text-slate-300">
-        <halo:footer />
-      </p>
-    </div>
-
-    <th:block th:replace="~{modules/footer-social}" />
-  </div>
-</footer> -->
