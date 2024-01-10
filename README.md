@@ -1,3 +1,8 @@
+# 感谢halo推出如此优秀的主题
+# 感谢halo官方的耐心指导
+[halo官网](https://halo.run)
+[halo开发文档](https://docs.halo.run)
+
 # Earth-mtxst
 
 通过修改Halo 2.0 的默认主题而来。
@@ -5,6 +10,23 @@
 一个和医疗器械相关的主题
 
 前端使用了[Boomerang UI Kit](https://www.bootmb.com/themes/boomerang/)
+
+
+## 新增模板
+
+### 自定义模板
+page_about.html  关于页面
+page_shop.html   购买渠道页面(使用了百度地图)
+
+### 分类模板
+category_news.html 新闻页(样式比较丑)
+
+category_notice.html  帮助与支持页面(使用了百度地图)
+
+### 文章模板
+post_detail.html 新闻详情页
+
+
 
 ## 使用方式
 
@@ -21,14 +43,5 @@ Earth 主题支持以下 Halo 插件：
 - 图库（/photos）：<https://halo.run/store/apps/app-BmQJW>
 - 瞬间（/moments）：<https://halo.run/store/apps/app-SnwWD>
 
-为了获得更好的体验，你还可以安装以下插件（如果需要）：
 
-- highlight.js 代码高亮：<https://halo.run/store/apps/app-sqpgf>
-- lightgallery.js 灯箱：<https://halo.run/store/apps/app-OoggD>
-
-主题开发文档可查阅：<https://docs.halo.run/2.0.0-SNAPSHOT/developer-guide/theme/prepare>
-
-
-## 感谢halo推出如此优秀的主题
-## 感谢halo官方的耐心指导
 
