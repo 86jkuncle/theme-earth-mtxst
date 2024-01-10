@@ -17,8 +17,6 @@
   </section>
 
   <section class="slice slice-lg p-0">
-    <!-- <div class="mask bg-dark alpha-7"></div> -->
-    <!-- <img src="./asset/img/help/矩形 8 拷贝 5.png" alt=""> -->
     <div th:style="'height: 450px;
     background-image: url('+@{/assets/img/help/support.png}+');
     background-size: cover;
@@ -177,25 +175,6 @@
   <!-- 公告 -->
   <th:block th:replace="~{modules/support-notice}"/>
 
-  <!-- <section class="slice-sm pb-0">
-    <div class="container">
-      <div class="row-wrapper">
-        <@content_page categoryId=currentCategory.id pageNumber=pageNumber pageSize = 10>
-        <ul class="list-grou bg-secondary py-3">
-          <#list contentPage.records as content>
-          <li
-            class="list-group-item d-flex justify-content-around align-items-center bg-transparent text-dark border-0">
-            <a href="${content.path}" class="text-dark h5">【公告】${content.title}</a>
-            <span class="text-dark text-muted">${date(content.createDate,'yyyy-MM-dd')}</span>
-          </li>
-        </#list>
-        </ul>
-      </@content_page>
-      </div>
-
-    </div>
-  </section> -->
-
   <section class="slice-lg pb-0">
     <div class="container">
       <div class="row align-items-center cols-xs-space cols-sm-space cols-md-space text-center text-lg-left">
@@ -252,11 +231,7 @@
   </section>
 
   <section class="slice pt-2" id="map-container" th:style="'width:1140px;min-width: 1140px;height: 400px;margin: 25px auto;'">
-<!--      <div class="container">-->
-<!--        <div class="row justify-content-center" >-->
-<!--          <img src="${tpath}/assets/img/help/map.png" alt="" class="img-fluid">-->
-<!--        </div>-->
-<!--      </div>-->
+
   </section>
 
 
