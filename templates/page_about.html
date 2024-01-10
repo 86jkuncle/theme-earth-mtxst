@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{modules/other_layout :: html(title = ${site.title}, hero = null, content = ~{::content}, head = null, footer = null, sidebar = null, contentClass = null,foot = null )}">
+
+
+
+<th:block th:fragment="content">
+  
+    <section class="slice-sm bg-dark pt-2 pb-0">
+      <div class="container">
+        <div class="row align-items-center cols-xs-space cols-sm-space cols-md-space text-center text-lg-left">
+          <div class="col-lg-7">
+            <h1 class="heading h4 text-white strong-500">
+              公司资质
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slice slice-lg p-0">
+      <!-- <div class="mask bg-dark alpha-7"></div> -->
+      <!-- <img src="./asset/img/help/矩形 8 拷贝 5.png" alt=""> -->
+      <div th:style="'height: 450px;
+      background-image: url('+@{/assets/img/aboutus/about_banner.png}+');
+      background-size: cover;
+      background-position: center center;
+      position: relative;'">
+        <p class="heading h2 text-white position-absolute" th:style="'width: 140px;
+      height: 38px;
+      top: 50%;
+      left: 50%;
+      margin-top: -19px;
+      margin-left: -70px;
+      text-align: center;'">关于我们</p>
+
+        <p class="headering h5 text-white position-absolute" th:style="'width: 146px;
+      height: 24px;
+      top: 50%;
+      left: 50%;
+      margin-top: 33px;
+      margin-left: -73px;
+      text-align: center;'">About Us</p>
+      </div>
+    </section>
+
+
+
+    <section class="slice-lg pb-0">
+      <div class="container">
+        <div class="row align-items-center cols-xs-space cols-sm-space cols-md-space text-center text-lg-left">
+          <div class="col-lg-12">
+            <h2 class="heading h2 text-dark strong-500 text-center">
+              企业介绍
+            </h2>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slice pt-0" data-delimiter="0">
+      <div class="container">
+        <div class="row cols-xs-space cols-sm-space align-items-center">
+          <div class="col-lg-3 order-md-2">
+            <img th:src="@{/assets/img/aboutus/company-build.png}" class="img-center img-fluid rounded z-depth-3">
+          </div>
+          <div class="col-lg-9 bg-s">
+            <div class="pr-md-4">
+              <p class="lead text-gray mt-4" th:style="'text-indent: 2em;'">
+                长沙市卓成医疗器械有限公司成立于2007年10月11日，注册地位于湖南省长沙市岳麓区学士街道玉莲路32号联东优谷工业园一号地9栋202号房，法定代表人为侯新民。经营范围包括一般项目：第一类医疗器械销售；制药专用设备制造；电子测量仪器制造；安防设备制造；家用纺织制成品制造；产业用纺织制成品制造；塑料制品制造；玻璃纤维增强塑料制品制造；实验分析仪器制造；仪器仪表制造；专用设备制造（不含许可类专业设备制造）；通用设备制造（不含特种设备制造）；第二类医疗器械销售；药物检测仪器销售；农、林、牧、副、渔业专业机械的销售；农林牧渔专用仪器仪表销售；玻璃仪器销售；实验分析仪器销售；仪器仪表销售；五金产品零售；五金产品批发；包装材料及制品销售；文具用品零售；文具用品批发；办公用品销售；日用品销售；日用百货销售；化工产品销售（不含许可类化工产品）；机械设备销售；卫生用品和一次性使用医疗用品销售；互联网销售（除销售需要许可的商品）；软件开发；软件销售；广告发布；广告制作；广告设计、代理；摄像及视频制作服务。（除依法须经批准的项目外，凭营业执照依法自主开展经营活动）许可项目：互联网信息服务；药品互联网信息服务；医疗器械互联网信息服务。（依法须经批准的项目，经相关部门批准后方可开展经营活动，具体经营项目以相关部门批准文件或许可证件为准）。
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="slice pt-2">
+      <div class="container">
+        <div class="row align-items-center cols-xs-space cols-sm-space cols-md-space text-center text-lg-left">
+          <div class="col-lg-12">
+            <h2 class="heading h2 text-dark strong-500 text-center">
+              企业资质
+            </h2>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slice pt-0">
+      <div class="container bg-lighter">
+        <div class="row  p-5"><img th:src="@{/assets/img/aboutus/cert.png}" alt=""></div>
+      </div>
+    </section>
+
+
+
+
+</th:block>
+
+
+
+</html>

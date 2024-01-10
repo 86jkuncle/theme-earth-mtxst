@@ -1,0 +1,47 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: theme-earth-msxst
+  annotations:
+    # Add supports for Halo App Store
+    # https://halo.run/store/apps/app-KgWqR
+    "store.halo.run/app-id": "app-KgWqR"
+spec:
+  displayName: Earth-mtxst
+  author:
+    name: mtxst
+    website: https://www.lybaobei.com
+  description:  theme for cszcyl
+  logo: https://halo.run/logo
+  website: https://github.com/86jkuncle/theme-earth-mtxst
+  repo: https://github.com/86jkuncle/theme-earth-mtxst.git
+  settingName: "theme-earth-my-setting"
+  configMapName: "theme-earth-my-configMap"
+  version: 1.7.1
+  require: ">=2.8.0"
+  customTemplates:
+    page:
+      - name: 文档
+        description: 文档类型的文章
+        screenshot: 
+        file: page_about.html
+ 
+      - name: 描述
+        description: 描述类型的文章
+        screenshot: 
+        file: page_shop.html
+    category:
+      - name: 新闻
+        description: 新闻类型的分类
+        screenshot:
+        file: category_news.html
+      
+      - name: 公告
+        description: 公告类型的分类
+        screenshot:
+        file: category_notice.html
+    post:
+      - name: 文章详情
+        description: 文章详情模板
+        screenshot:
+        file: post_detail.html

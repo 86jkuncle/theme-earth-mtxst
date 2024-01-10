@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row-wrapper">
+    
+    <ul class="list-grou bg-secondary py-3" th:each="post : ${posts.items}">
+      <!-- <span th:text="${post}"></span> -->
+        <li
+        class="list-group-item d-flex justify-content-around align-items-center bg-transparent text-dark border-0">
+        <a th:href="${post.status.permalink}" class="text-dark h5" th:text="'【公告】'+${post.spec.title}"></a>
+        <span class="text-dark text-muted" th:text="${#dates.format(post.metadata.creationTimestamp,'yyyy-MM-dd')}"></span>
+      </li>
+    </ul>
+  
+  </div>
+
+</div>

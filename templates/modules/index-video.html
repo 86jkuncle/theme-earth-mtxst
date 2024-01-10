@@ -1,0 +1,360 @@
+<section class="homepage-skypixel-module">
+  <div class="skypixel-container mt-0">
+    <div id="slide-swiper" class="swiper-container swiper-container-horizontal" style="overflow: hidden;">
+      <button data-ga-category="pc-homepage" data-ga-action="click" data-ga-label="skypixel-banner_swiperPrev"
+        tabindex="0" aria-label="Swiper Prev" class="swiper-btn-prev swiper-btn ga-data">
+        <div class="arrow-icon"></div>
+      </button>
+      <button data-ga-category="pc-homepage" data-ga-action="click" data-ga-label="skypixel-banner_swiperNext"
+        tabindex="0" aria-label="Swiper Next" class="swiper-btn-next swiper-btn ga-data">
+        <div class="arrow-icon"></div>
+      </button>
+      <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-10870px, 0px, 0px);"
+        th:with="swiper_videos = ${theme.config.layout.swiper_video}">
+        <th:block th:each="swiper : ${swiper_videos}">
+          <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="margin-right: 16px;">
+            <a
+            href="/" data-ga-category="pc-homepage" data-ga-action="click"
+            data-ga-label="skypixel-banner_SkyCity9-shoton" aria-label="9 周年影像大赛" tabindex="-1"
+            class="skypixel-banner-link ga-data" target="_blank">
+              <div class="slide-video-poster" th:style="'background-image: url('+@{${swiper.image}}+');'">
+              </div><video data-dps-name="default_" name="media" muted="" loop="" title="9 周年影像大赛"
+                class="slide-grid-video slide-grid-content dps-cms">
+                <source
+                  data-layzr-src="https://terra-1-g.djicdn.com/851d20f7b9f64838a34cd02351370894/%E5%A4%A9%E7%A9%BA%E4%B9%8B%E5%9F%8E%209%20%E5%91%A8%E5%B9%B4%E5%BD%B1%E5%83%8F%E5%A4%A7%E8%B5%9B/1124.mp4"
+                  type="video/mp4; codecs=&quot;avc1.4D401E, mp4a.40.2&quot;" th:src="${swiper.video}">
+              </video>
+            </a>
+          </div>
+        </th:block>
+        
+        
+        <!-- <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="margin-right: 16px;"><a
+            href="/" data-ga-category="pc-homepage" data-ga-action="click" data-ga-label="skypixel-banner_op3-shoton"
+            aria-label="Osmo Pocket 3" tabindex="-1" class="skypixel-banner-link ga-data">
+            <div class="slide-video-poster" th:style="'background-image: url('+@{/assets/video_images/2.jpg}+');'">
+            </div><video data-dps-name="default_" name="media" muted="" loop="" title="Osmo Pocket 3"
+              class="slide-grid-video slide-grid-content dps-cms">
+              <source
+                data-layzr-src="https://terra-1-g.djicdn.com/851d20f7b9f64838a34cd02351370894/212%20download/F55_HG212_%E9%A6%96%E9%A1%B5Shot%20on%20Banner%E8%A7%86%E9%A2%91_CLEAN_-10s_V2_1200-720%20%EF%BC%88%E8%BE%93%E5%87%BA2X%EF%BC%89.mp4"
+                type="video/mp4; codecs=&quot;avc1.4D401E, mp4a.40.2&quot;" th:src="@{/assets/video/2.mp4}">
+            </video>
+          </a></div>
+        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="margin-right: 16px;"><a
+            href="/" data-ga-category="pc-homepage" data-ga-action="click" data-ga-label="skypixel-banner_140-sp"
+            aria-label="DJI Mini 4 Pro" tabindex="-1" class="skypixel-banner-link ga-data">
+            <div class="slide-video-poster" th:style="'background-image: url('+@{/assets/video_images/3.jpg}+');'">
+            </div><video data-dps-name="default_" name="media" muted="" loop="" title="DJI Mini 4 Pro"
+              class="slide-grid-video slide-grid-content dps-cms">
+              <source
+                data-layzr-src="https://terra-1-g.djicdn.com/851d20f7b9f64838a34cd02351370894/140%20shot%20on/F30_WA140_DJI%20home%20page%20Shot%20on%20Banner%20Video_CLEAN_%E2%89%A410s_V4_2400-1440.mp4"
+                type="video/mp4; codecs=&quot;avc1.4D401E, mp4a.40.2&quot;" th:src="@{/assets/video/3.mp4}">
+            </video>
+          </a></div>
+        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="4" style="margin-right: 16px;"><a
+            href="/" data-ga-category="pc-homepage" data-ga-action="click"
+            data-ga-label="skypixel-banner_mavic-3-pro-sp" aria-label="DJI Mavic 3 Pro" tabindex="-1"
+            class="skypixel-banner-link ga-data">
+            <div class="slide-video-poster" th:style="'background-image: url('+@{/assets/video_images/4.jpg}+');'">
+            </div><video data-dps-name="default_" name="media" muted="" loop="" title="DJI Mavic 3 Pro"
+              class="slide-grid-video slide-grid-content dps-cms">
+              <source
+                data-layzr-src="https://terra-1-g.djicdn.com/851d20f7b9f64838a34cd02351370894/261%20shot%20on/shot%20on.mp4"
+                type="video/mp4; codecs=&quot;avc1.4D401E, mp4a.40.2&quot;" th:src="@{/assets/video/4.mp4}">
+            </video>
+          </a></div> -->
+        <!-- <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="5"
+                  style="margin-right: 16px;"><a
+                      href="https://www.dji.com/cn/air-3?site=brandsite&amp;from=homepage"
+                      data-ga-category="pc-homepage" data-ga-action="click"
+                      data-ga-label="skypixel-banner_air-3-sp" aria-label="DJI Air 3" tabindex="-1"
+                      class="skypixel-banner-link ga-data">
+                      <div class="slide-video-poster"
+                          style="background-image: url('./assets/video_images/5.jpg');">
+                      </div><video data-dps-name="default_" name="media" muted="" loop="" title="DJI Air 3" muted
+                          class="slide-grid-video slide-grid-content dps-cms">
+                          <source
+                              data-layzr-src="https://terra-1-g.djicdn.com/851d20f7b9f64838a34cd02351370894/233/F17D_WA233_%E9%A6%96%E9%A1%B5Shot%20on%20Banner%E8%A7%86%E9%A2%91_CLEAN_CLEAN_V2.2_2400x1440.mp4"
+                              type="video/mp4; codecs=&quot;avc1.4D401E, mp4a.40.2&quot;"
+                              src="./video/5.mp4">
+                      </video>
+                  </a></div>
+              <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="6"
+                  style="margin-right: 16px;"><a
+                      href="https://www.dji.com/cn/osmo-action-4?site=brandsite&amp;from=homepage"
+                      data-ga-category="pc-homepage" data-ga-action="click"
+                      data-ga-label="skypixel-banner_osmo-action-4-sp" aria-label="Osmo Action 4" tabindex="-1"
+                      class="skypixel-banner-link ga-data">
+                      <div class="slide-video-poster"
+                          style="background-image: url('./assets/video_images/6.jpg');">
+                      </div><video data-dps-name="default_" name="media" muted="" loop="" title="Osmo Action 4" muted
+                          class="slide-grid-video slide-grid-content dps-cms">
+                          <source
+                              data-layzr-src="https://terra-1-g.djicdn.com/851d20f7b9f64838a34cd02351370894/203/C19_AC203_WebClips_%E5%AE%98%E7%BD%91%E9%A6%96%E9%A1%B5ShotOn_V3_PC_2400x1440.mp4"
+                              type="video/mp4; codecs=&quot;avc1.4D401E, mp4a.40.2&quot;"
+                              src="./video/6.mp4">
+                      </video>
+                  </a></div>
+              <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="7"
+                  style="margin-right: 16px;"><a
+                      href="https://www.skypixel.com/videos/dji-inspire-3?utm_source=brandsite&amp;utm_medium=homepage&amp;utm_campaign=630&amp;site=brandsite&amp;from=homepage"
+                      data-ga-category="pc-homepage" data-ga-action="click"
+                      data-ga-label="skypixel-banner_inspire-3-sp" aria-label="DJI Inspire 3" tabindex="-1"
+                      class="skypixel-banner-link ga-data" target="_blank">
+                      <div class="slide-video-poster"
+                          style="background-image: url('./assets/video_images/7.jpg');">
+                      </div><video data-dps-name="default_" name="media" muted="" loop="" title="DJI Inspire 3" muted
+                          class="slide-grid-video slide-grid-content dps-cms">
+                          <source
+                              data-layzr-src="https://terra-1-g.djicdn.com/851d20f7b9f64838a34cd02351370894/Shot%20on%20%E8%A7%86%E9%A2%91%E8%B0%83%E6%95%B4/1.mov"
+                              type="video/mp4; codecs=&quot;avc1.4D401E, mp4a.40.2&quot;"
+                              src="./video/1.mov">
+                      </video>
+                  </a></div>
+              <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="8"
+                  style="margin-right: 16px;"><a
+                      href="https://www.skypixel.com/tags/29d7e717-e0cd-4089-9acb-6e7c0dd8bfb1?site=brandsite&amp;from=homepage"
+                      data-ga-category="pc-homepage" data-ga-action="click"
+                      data-ga-label="skypixel-banner_avata-so" aria-label="DJI Avata" tabindex="-1"
+                      class="skypixel-banner-link ga-data" target="_blank">
+                      <div class="slide-video-poster"
+                          style="background-image: url('./assets/video_images/8.jpg');">
+                      </div><video data-dps-name="default_" name="media" muted="" loop="" title="DJI Avata" muted
+                          class="slide-grid-video slide-grid-content dps-cms">
+                          <source
+                              data-layzr-src="https://terra-1-g.djicdn.com/851d20f7b9f64838a34cd02351370894/Shot%20on%20%E8%A7%86%E9%A2%91%E8%B0%83%E6%95%B4/169%20shot%20on-pc-1_AfterCodecs.mp4"
+                              type="video/mp4; codecs=&quot;avc1.4D401E, mp4a.40.2&quot;"
+                              src="./video/8.mp4">
+                      </video>
+                  </a></div>
+              <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="9"
+                  style="margin-right: 16px;"><a
+                      href="https://www.dji.com/cn/ronin-4d/master?site=brandsite&amp;from=homepage"
+                      data-ga-category="pc-homepage" data-ga-action="click"
+                      data-ga-label="skypixel-banner_ronin-4d-flex-sp" aria-label="DJI Ronin 4D Flex"
+                      tabindex="-1" class="skypixel-banner-link ga-data">
+                      <div class="slide-video-poster"
+                          style="background-image: url('./assets/video_images/9.jpg');">
+                      </div><video data-dps-name="default_" name="media" muted="" loop="" muted
+                          title="DJI Ronin 4D Flex" class="slide-grid-video slide-grid-content dps-cms">
+                          <source
+                              data-layzr-src="https://terra-1-g.djicdn.com/851d20f7b9f64838a34cd02351370894/Shot%20on%20%E8%A7%86%E9%A2%91%E8%B0%83%E6%95%B4/F09_HG330Flex_ShotOn_V4_2400x1440_AfterCodecs.mp4"
+                              type="video/mp4; codecs=&quot;avc1.4D401E, mp4a.40.2&quot;"
+                              src="./video/9.mp4">
+                      </video>
+                  </a></div> -->
+
+      </div>
+      <div class="swiper-pagination-box">
+        <div class="swiper-pagination-bullet">
+          <div class="progress"></div>
+        </div>
+        <div class="swiper-pagination-bullet">
+          <div class="progress"></div>
+        </div>
+        <div class="swiper-pagination-bullet">
+          <div class="progress"></div>
+        </div>
+        <div class="swiper-pagination-bullet">
+          <div class="progress"></div>
+        </div>
+
+        <!-- <div class="swiper-pagination-bullet">
+                  <div class="progress"></div>
+              </div>
+              <div class="swiper-pagination-bullet">
+                  <div class="progress"></div>
+              </div>
+              <div class="swiper-pagination-bullet">
+                  <div class="progress"></div>
+              </div>
+              <div class="swiper-pagination-bullet">
+                  <div class="progress"></div>
+              </div>
+              <div class="swiper-pagination-bullet">
+                  <div class="progress"></div>
+              </div> -->
+      </div>
+      <div class="swiper-prev-area"></div>
+      <div class="swiper-next-area"> </div>
+    </div>
+    <!-- <div id="slide-contents" class="slide-contents contents-container">
+          <div class="content">
+              <div data-expire="1706889599" class="slide-content" tabindex="0">
+                  <p class="desc">天空之城</p>
+                  <div class="product-name animation-text">
+                      <h3 class="product-name-text text">9 周年影像大赛</h3>
+                  </div>
+                  <div class="sp-learn-more-wrapper animation-text"><a
+                          href="https://www.skypixel.com/contests/2023?utm_source=brandsite&amp;utm_medium=shoton&amp;utm_campaign=2023contest&amp;site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-learnmore_SkyCity9-shoton" aria-label="了解更多 9 周年影像大赛"
+                          class="ga-data sp-learn-more text" target="_blank">
+                          <div class="learn-text">了解更多</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a></div>
+              </div>
+              <div data-expire="253402271999" class="slide-content" tabindex="-1">
+                  <p class="desc">拍摄设备</p>
+                  <div class="product-name animation-text">
+                      <h3 class="product-name-text text">Osmo Pocket 3</h3>
+                  </div>
+                  <div class="sp-learn-more-wrapper animation-text"><a
+                          href="https://www.dji.com/cn/osmo-pocket-3?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-learnmore_op3-shoton" aria-label="了解更多 Osmo Pocket 3"
+                          class="ga-data sp-learn-more text">
+                          <div class="learn-text">了解更多</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a><a href="https://store.dji.com/product/osmo-pocket-3?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-button1-learnmore_op3-shoton"
+                          aria-label="立即购买 Osmo Pocket 3" class="ga-data sp-learn-more text" target="_blank">
+                          <div class="learn-text">立即购买</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a></div>
+              </div>
+              <div data-expire="253402271999" class="slide-content" tabindex="-1">
+                  <p class="desc">拍摄设备</p>
+                  <div class="product-name animation-text">
+                      <h3 class="product-name-text text">DJI Mini 4 Pro</h3>
+                  </div>
+                  <div class="sp-learn-more-wrapper animation-text"><a
+                          href="https://www.dji.com/cn/mini-4-pro?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-learnmore_140-sp" aria-label="了解更多 DJI Mini 4 Pro"
+                          class="ga-data sp-learn-more text">
+                          <div class="learn-text">了解更多</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a><a href="https://store.dji.com/product/dji-mini-4-pro?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-button1-learnmore_140-sp"
+                          aria-label="立即购买 DJI Mini 4 Pro" class="ga-data sp-learn-more text" target="_blank">
+                          <div class="learn-text">立即购买</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a></div>
+              </div>
+              <div data-expire="253402271999" class="slide-content" tabindex="-1">
+                  <p class="desc">拍摄设备</p>
+                  <div class="product-name animation-text">
+                      <h3 class="product-name-text text">DJI Mavic 3 Pro</h3>
+                  </div>
+                  <div class="sp-learn-more-wrapper animation-text"><a
+                          href="https://www.dji.com/cn/mavic-3-pro?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-learnmore_mavic-3-pro-sp"
+                          aria-label="了解产品 DJI Mavic 3 Pro" class="ga-data sp-learn-more text">
+                          <div class="learn-text">了解产品</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a><a href="https://store.dji.com/product/dji-mavic-3-pro?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-button1-learnmore_mavic-3-pro-sp"
+                          aria-label="立即购买 DJI Mavic 3 Pro" class="ga-data sp-learn-more text" target="_blank">
+                          <div class="learn-text">立即购买</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a></div>
+              </div>
+              <div data-expire="253402271999" class="slide-content" tabindex="-1">
+                  <p class="desc">拍摄设备</p>
+                  <div class="product-name animation-text">
+                      <h3 class="product-name-text text">DJI Air 3</h3>
+                  </div>
+                  <div class="sp-learn-more-wrapper animation-text"><a
+                          href="https://www.dji.com/cn/air-3?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-learnmore_air-3-sp" aria-label="了解更多 DJI Air 3"
+                          class="ga-data sp-learn-more text">
+                          <div class="learn-text">了解更多</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a><a href="//store.dji.com/product/dji-air-3?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-button1-learnmore_air-3-sp" aria-label="立即购买 DJI Air 3"
+                          class="ga-data sp-learn-more text" target="_blank">
+                          <div class="learn-text">立即购买</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a></div>
+              </div>
+              <div data-expire="253402271999" class="slide-content" tabindex="-1">
+                  <p class="desc">拍摄设备</p>
+                  <div class="product-name animation-text">
+                      <h3 class="product-name-text text">Osmo Action 4</h3>
+                  </div>
+                  <div class="sp-learn-more-wrapper animation-text"><a
+                          href="https://www.dji.com/cn/osmo-action-4?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-learnmore_osmo-action-4-sp"
+                          aria-label="更多精彩 Osmo Action 4" class="ga-data sp-learn-more text">
+                          <div class="learn-text">更多精彩</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a><a href="//store.dji.com/product/osmo-action-4?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-button1-learnmore_osmo-action-4-sp"
+                          aria-label="立即购买 Osmo Action 4" class="ga-data sp-learn-more text" target="_blank">
+                          <div class="learn-text">立即购买</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a></div>
+              </div>
+              <div data-expire="253402271999" class="slide-content" tabindex="-1">
+                  <p class="desc">拍摄设备</p>
+                  <div class="product-name animation-text">
+                      <h3 class="product-name-text text">DJI Inspire 3</h3>
+                  </div>
+                  <div class="sp-learn-more-wrapper animation-text"><a
+                          href="https://www.skypixel.com/videos/dji-inspire-3?utm_source=brandsite&amp;utm_medium=homepage&amp;utm_campaign=630&amp;site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-learnmore_inspire-3-sp" aria-label="更多精彩 DJI Inspire 3"
+                          class="ga-data sp-learn-more text" target="_blank">
+                          <div class="learn-text">更多精彩</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a><a href="https://www.dji.com/cn/inspire-3?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-button1-learnmore_inspire-3-sp"
+                          aria-label="了解产品 DJI Inspire 3" class="ga-data sp-learn-more text">
+                          <div class="learn-text">了解产品</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a></div>
+              </div>
+              <div data-expire="253402271999" class="slide-content" tabindex="-1">
+                  <p class="desc">拍摄设备</p>
+                  <div class="product-name animation-text">
+                      <h3 class="product-name-text text">DJI Avata</h3>
+                  </div>
+                  <div class="sp-learn-more-wrapper animation-text"><a
+                          href="https://www.skypixel.com/tags/29d7e717-e0cd-4089-9acb-6e7c0dd8bfb1?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-learnmore_avata-so" aria-label="更多精彩 DJI Avata"
+                          class="ga-data sp-learn-more text" target="_blank">
+                          <div class="learn-text">更多精彩</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a><a href="https://www.dji.com/cn/avata?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-button1-learnmore_avata-so" aria-label="了解产品 DJI Avata"
+                          class="ga-data sp-learn-more text">
+                          <div class="learn-text">了解产品</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a></div>
+              </div>
+              <div data-expire="253402271999" class="slide-content" tabindex="-1">
+                  <p class="desc">拍摄设备</p>
+                  <div class="product-name animation-text">
+                      <h3 class="product-name-text text">DJI Ronin 4D Flex</h3>
+                  </div>
+                  <div class="sp-learn-more-wrapper animation-text"><a
+                          href="https://www.dji.com/cn/ronin-4d/master?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-learnmore_ronin-4d-flex-sp"
+                          aria-label="更多精彩 DJI Ronin 4D Flex" class="ga-data sp-learn-more text">
+                          <div class="learn-text">更多精彩</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a><a href="https://www.dji.com/cn/ronin-4d?site=brandsite&amp;from=homepage"
+                          data-ga-category="pc-homepage" data-ga-action="click"
+                          data-ga-label="skypixel-banner-button1-learnmore_ronin-4d-flex-sp"
+                          aria-label="了解产品 DJI Ronin 4D Flex" class="ga-data sp-learn-more text">
+                          <div class="learn-text">了解产品</div>
+                          <div class="icon fa fa-angle-right"></div>
+                      </a></div>
+              </div>
+          </div>
+      </div>  -->
+  </div>
+</section>
