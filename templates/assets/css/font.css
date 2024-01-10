@@ -1,0 +1,14 @@
+@font-face{
+  font-family: "Nunito-Bold";
+  src:url([[@{/assets/css/Nunito-Bold.ttf}]]);
+}
+
+@font-face{
+  font-family: "Nunito-Regular";
+  src:url([[@{/assets/css/Nunito-Regular.ttf}]]);
+}
+
+@font-face{
+  font-family: "Nunito-SemiBold";
+  src:url([[@{/assets/css/Nunito-SemiBold.ttf}]]);
+}

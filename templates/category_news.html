@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{modules/other_layout :: html(title = ${site.title}, hero = null, content = ~{::content}, head = null, footer = null, sidebar = null, contentClass = null,foot = null )}">
+
+
+
+<th:block th:fragment="content">
+
+<section class="slice-sm bg-dark pt-2 pb-0">
+  <div class="container">
+    <div class="row align-items-center cols-xs-space cols-sm-space cols-md-space text-center text-lg-left">
+      <div class="col-lg-7">
+        <h1 class="heading h4 text-white strong-500">
+           公司新闻
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slice-lg pb-5">
+  <div class="container">
+   
+    <div class="row-wrapper" th:if="${posts.total gt 0}">
+      
+      <div class="row cols-xs-space cols-sm-space cols-md-space"  th:each="post : ${posts.items}">
+        <!-- <span th:text="${posts}"></span> -->
+        <div class="col-md-6">
+          <div class="card bg-white flex-row-reverse justify-content-center border-0">
+            <a th:href="${post.status.permalink}"><img class="img-thumbnail" th:src="${post.spec.cover}" alt="" th:style="'height: 220px;'"></a>
+          </div>
+          
+        </div>
+        <div class="col-md-6">
+          <div class="card bg-secondary" th:style="'height: 220px;overflow:hidden;'">
+            <a th:href="${post.status.permalink}">
+              <div class="card-body py-5">
+                <div class="d-flex align-items-start">
+                  <div class="align-items-center text-center col-3 row flex-column justify-content-center mt-3">
+                    <span class="h1 text-muted" th:text="${#dates.format(post.metadata.creationTimestamp,'dd')}"></span>
+                    <span class="h5 text-muted" th:text="${#dates.format(post.metadata.creationTimestamp,'yyyy-MM')}"></span>
+                  </div>
+                  <div class="icon-text news-list-card-body">
+                    <h3 class="heading h4" th:text="${post.spec.title}"></h3>
+                    <p class="mb-0 text-wrap news-body text-muted bg-secondary" th:text="${post.status.excerpt}">
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- 分页 -->
+<!-- {
+  "page": 0,                                   // 当前页码
+  "size": 0,                                   // 每页条数
+  "total": 0,                                  // 总条数
+  "items": "List<#ListedPostVo>",              // 文章列表数据
+  "first": true,                               // 是否为第一页
+  "last": true,                                // 是否为最后一页
+  "hasNext": true,                             // 是否有下一页
+  "hasPrevious": true,                         // 是否有上一页
+  "totalPages": 0,                             // 总页数
+  "nextUrl": "string",                         // 下一页链接
+  "prevUrl": "string"                          // 上一页链接
+} -->
+<!-- 分页 -->
+
+<section class="slice p-0" th:if="${posts.total gt 0}">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="col-lg-12 row justify-content-center">
+                    <!-- Pagination with text -->
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination" th:each="post : ${posts.items}">
+                            <!-- <li class="page-item active" th:if="${posts.first}"><a class="page-link"  th:text="首页"></a></li> -->
+                            
+                            <li class="page-item" th:if="${posts.hasPrevious}"><a class="page-link" th:href="${posts.previous}" th:text="上一页"></a></li>
+                        
+                        
+                        <!-- <li class="page-item" th:if="${posts.page lt posts.total}"><a class="page-link" href="${pattern}${segmentPageNumber}" th:text="">${segmentPageNumber}</a></li> -->
+                        
+                        <!-- <li class="page-item" th:if="${posts.page eq posts.total}"><a href="javascript:;" th:text="${posts.page}"></a></li> -->
+                   
+
+
+                <!-- 数字条，小屏幕时自动隐藏-->
+                
+                <li class="page-item" th:if="${posts.hasNext()}"><a class="page-link" th:href="${posts.nextUrl}">下一页</a></li>
+            
+            <!-- <li class="page-item" th:if="${posts.last()}"><a href="${pattern}${totalPages}">尾页</a></li> -->
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:text="暂时没有更多新闻" class="row justify-content-center align-content-center text-dark h3 pb-5" th:if="${posts.total le 1}"></div>
+
+<!-- gt：（大于）>
+ge：（大于等于）>=
+eq：（等于）==
+lt：（小于）<
+le：（小于等于）<=
+ne：（不等于）!= -->
+
+
+</th:block>
+
+
+
+</html>

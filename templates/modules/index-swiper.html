@@ -1,0 +1,14 @@
+<!-- Swiper -->
+<div class="swiper mySwiper mb-3">
+  <div class="swiper-wrapper" th:with="swiper_images = ${theme.config.layout.swiper_image}">
+    
+    <th:block th:each="swiper_image : ${swiper_images}">
+      <div class="swiper-slide"><img th:src="${swiper_image.img}" alt=""></div>
+    </th:block>
+      <!-- <div class="swiper-slide"><img th:src="@{/assets/images/20231228175200.png}" alt=""></div>
+      <div class="swiper-slide"><img th:src="@{/assets/images/dj1.jpg}" alt=""></div>
+      <div class="swiper-slide"><img th:src="@{/assets/images/dj2.jpg}" alt=""></div> -->
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>

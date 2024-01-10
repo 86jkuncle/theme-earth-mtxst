@@ -1,0 +1,122 @@
+<nav id="site-header" class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-white">
+  <div class="container justify-content-between" id="site-header-container">
+      <div class="site-header-logo">
+          <a class="navbar-brand navbar-my-logo" href="./"><img th:if="${not #strings.isEmpty(site.logo)}" th:src="${site.logo}" alt=""
+                  class="img-fluid"></a>
+      </div>
+
+      <div class="d-flex offcanvas-collapse justify-content-between" id="navbar_main" th:with="menu = ${menuFinder.getPrimary()}">
+          <ul class="navbar-nav ml-auto align-items-lg-center" th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">
+            <li class="nav-item" th:each="menuItem : ${menu.menuItems}" th:classappend="|${not #lists.isEmpty(menuItem.children) ? 'dropdown' : ''}|">
+                <a class="nav-link" th:href="@{${menuItem.status.href}}"
+                th:text="${menuItem.status.displayName}"
+                th:target="${menuItem.spec.target?.value}"
+                th:if="${#lists.isEmpty(menuItem.children)}"
+                ></a>
+                <th:block th:if="${not #lists.isEmpty(menuItem.children)}">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"  th:text="${menuItem.status.displayName}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+                        <a class="dropdown-item" th:target="${childMenuItem.spec.target?.value}" th:text="${childMenuItem.status.displayName}" th:href="@{${childMenuItem.status.href}}" th:each="childMenuItem : ${menuItem.children}"></a>
+                      </div>
+                </th:block>
+            </li>
+              <!-- <li class="nav-item active">
+                  <a class="nav-link" href="./index.html">煎药机</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                  <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+                    <a class="dropdown-item" href="./pages/homepage.html">Homepage</a>
+                    <a class="dropdown-item" href="./pages/about.html">About us</a>
+                    <a class="dropdown-item" href="./pages/sign-in.html">Sign in</a>
+                    <a class="dropdown-item" href="./pages/contact.html">Contact</a>
+                  </div>
+                </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">制丸机</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="./docs/introduction.html">粉碎机</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="./docs/introduction.html">探索精彩</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link nav-link-icon" href="https://instagram.com/webpixelsofficial/"
+                      target="_blank">帮助与支持</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link nav-link-icon" href="https://web.facebook.com/webpixels"
+                      target="_blank">购买渠道</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link nav-link-icon" href="https://dribbble.com/webpixels" target="_blank">关于我们</a>
+              </li> -->
+
+                <!-- 子菜单设置方法 -->
+                    <!-- <ul
+                    th:if="${not #lists.isEmpty(menuItem.children)}"
+                    @mouseenter="open()"
+                    @mouseleave="close()"
+                    x-show="show"
+                    x-transition:enter="transition ease-out duration-100"
+                    x-transition:enter-start="transform opacity-0 scale-95"
+                    x-transition:enter-end="transform opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-75"
+                    x-transition:leave-start="transform opacity-100 scale-100"
+                    x-transition:leave-end="transform opacity-0 scale-95"
+                    class="menu-dropdown absolute left-0 z-10 mt-2 w-40 divide-y divide-gray-50 overflow-hidden rounded bg-white shadow dark:bg-slate-700"
+                >
+                    <li
+                    th:each="childMenuItem : ${menuItem.children}"
+                    class="flex w-full items-center text-left text-sm hover:bg-gray-50 dark:hover:bg-slate-600"
+                    >
+                    <a
+                        class="h-full w-full truncate px-4 py-2 text-gray-600 hover:text-blue-600 dark:text-slate-50 dark:hover:text-gray-300"
+                        th:href="@{${childMenuItem.status.href}}"
+                        th:text="${childMenuItem.status.displayName}"
+                        th:target="${childMenuItem.spec.target?.value}"
+                    ></a>
+                    </li>
+                </ul> -->
+          </ul>
+      </div>
+
+      <div class="ml-auto d-flex offcanvas-collapse justify-content-between">
+
+          <ul class="navbar-nav ml-auto align-items-lg-center">
+              <!-- <li class="nav-item">
+                  <a data-ga-category="pc_nav_V2_hover" data-ga-action="click" data-ga-label="other-login"
+                      href="//www-api.dji.com/cn/redirect/member/login?backUrl=http%3A%2F%2F127.0.0.1%3A5500%2Findex.html"
+                      class="nav-link text-white" target="_blank"><i class="fas fa-search"></i></a>
+              </li> -->
+
+              <li class="nav-item">
+                  <a data-ga-category="pc_nav_V2_hover" data-ga-action="click" data-ga-label="other-register"
+                      href="/console"
+                      class="nav-link text-white" target="_blank"><i class="far fa-user"></i></a>
+              </li>
+
+              <li class="nav-item" id="top-qrcode">
+                  <div class="btn-group btn-action-label position-relative" role="group" aria-label="Like">
+                      <button type="button" class="btn btn-sm  btn-action"
+                          style="background-color: #0070d5 !important;">
+                          <i class="fas fa-shopping-basket text-white"></i>
+                          <span class="text-white">商城</span>
+                      </button>
+
+                      <!-- 二维码 -->
+
+                      <div class="p-1 bg-white border-1 wechatprogram position-absolute justify-content-center
+                      flex-column align-items-center" th:style="'width:113px;height:143px;left:0;top:39px;'">
+                        <img  class="img-thumbnail"  th:src="@{/assets/img/index/qrcode.png}" alt="">
+                      </div>
+
+                  </div>
+              </li>
+
+          </ul>
+      </div>
+  </div>
+</nav>
