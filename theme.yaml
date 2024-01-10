@@ -1,22 +1,18 @@
 apiVersion: theme.halo.run/v1alpha1
 kind: Theme
 metadata:
-  name: theme-earth-msxst
-  annotations:
-    # Add supports for Halo App Store
-    # https://halo.run/store/apps/app-KgWqR
-    "store.halo.run/app-id": "app-KgWqR"
+  name: theme-earth-mtxst
 spec:
   displayName: Earth-mtxst
   author:
     name: mtxst
-    website: https://www.lybaobei.com
-  description:  theme for cszcyl
+    website: https://www.cszcyl.cn
+  description:  一个医疗行业相关的主题
   logo: https://halo.run/logo
   website: https://github.com/86jkuncle/theme-earth-mtxst
   repo: https://github.com/86jkuncle/theme-earth-mtxst.git
-  settingName: "theme-earth-my-setting"
-  configMapName: "theme-earth-my-configMap"
+  settingName: "theme-earth-mtxst-setting"
+  configMapName: "theme-earth-mtxst-configMap"
   version: 1.7.1
   require: ">=2.8.0"
   customTemplates:
