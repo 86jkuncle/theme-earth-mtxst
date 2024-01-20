@@ -1,14 +1,14 @@
 <nav id="site-header" class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-white">
   <div class="container justify-content-between" id="site-header-container">
       <div class="site-header-logo">
-          <a class="navbar-brand navbar-my-logo" href="./"><img th:if="${not #strings.isEmpty(theme.config.company.logo)}" th:src="${theme.config.company.logo}" alt=""
+          <a class="navbar-brand navbar-my-logo" href="/"><img th:if="${not #strings.isEmpty(theme.config.company.logo)}" th:src="${theme.config.company.logo}" alt=""
                   class="img-fluid"></a>
       </div>
 
       <div class="d-flex offcanvas-collapse justify-content-between" id="navbar_main" th:with="menu = ${menuFinder.getPrimary()}">
           <ul class="navbar-nav ml-auto align-items-lg-center" th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}">
             <li class="nav-item" th:each="menuItem : ${menu.menuItems}" th:classappend="|${not #lists.isEmpty(menuItem.children) ? 'dropdown' : ''}|">
-                <a class="nav-link" th:href="@{${menuItem.status.href}}"
+                <a class="nav-link" th:href="${menuItem.status.href}"
                 th:text="${menuItem.status.displayName}"
                 th:target="${menuItem.spec.target?.value}"
                 th:if="${#lists.isEmpty(menuItem.children)}"
@@ -16,7 +16,7 @@
                 <th:block th:if="${not #lists.isEmpty(menuItem.children)}">
                     <a class="nav-link dropdown-toggle" href="#" role="button"  th:text="${menuItem.status.displayName}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                     <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
-                        <a class="dropdown-item" th:target="${childMenuItem.spec.target?.value}" th:text="${childMenuItem.status.displayName}" th:href="@{${childMenuItem.status.href}}" th:each="childMenuItem : ${menuItem.children}"></a>
+                        <a class="dropdown-item" th:target="${childMenuItem.spec.target?.value}" th:text="${childMenuItem.status.displayName}" th:href="${childMenuItem.status.href}" th:each="childMenuItem : ${menuItem.children}"></a>
                       </div>
                 </th:block>
             </li>
