@@ -105,10 +105,10 @@
   padding: 0 16px;
 }
 
-/* 顶部导航字体颜色 */
-/* #navbar_main .nav-link {
+/* 顶部导航字体颜色 (首页轮播图背景色为黑色,所以导航颜色初始化为白色,才能看到菜单)*/
+#navbar_main .nav-link {
   color: #fff;
-} */
+}
 
 /* 页脚设置 */
 .footer .container .nav {

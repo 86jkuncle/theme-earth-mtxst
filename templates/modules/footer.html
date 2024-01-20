@@ -1,7 +1,7 @@
 <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary" id="footer">
   <div class="container">
       <div class="d-flex align-items-center justify-content-center mb-2">
-          <a href="/"><img th:src="@{/assets/images/logo.png}" alt=""></a>
+          <a th:href="@{/}"><img th:src="@{/assets/images/logo.png}" alt=""></a>
       </div>
 
       <div class="d-flex align-items-center justify-content-center mb-2" th:with="menu = ${menuFinder.getPrimary()}">
@@ -35,7 +35,7 @@
       <!-- <hr> -->
       <div class="d-flex align-items-center justify-content-center">
           <span class="h6 text-light">
-              <a th:href="${theme.config.company.url}" class="font-weight-bolder text-light"
+              <a th:href="@{${theme.config.company.url}}" class="font-weight-bolder text-light"
                 href="https://www.cszcyl.cn"
                   target="_blank"
                   th:if="${not #strings.isEmpty(theme.config.company.name)}"
@@ -43,7 +43,7 @@
                   <a class="font-weight-bolder text-light"
                     th:if="${not #strings.isEmpty(theme.config.beian.icp_link)}"
                       href="https://beian.mps.gov.cn/"
-                      th:href="${theme.config.beian.icp_link}"
+                      th:href="@{${theme.config.beian.icp_link}}"
         th:text="${theme.config.beian.icp_text}"></a>
           </span>
       </div>

@@ -14,14 +14,14 @@
         <th:block th:each="swiper : ${swiper_videos}">
           <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" style="margin-right: 16px;">
             <a
-            href="/" data-ga-category="pc-homepage" data-ga-action="click"
+            th:href="@{${swiper.url}}" data-ga-category="pc-homepage" data-ga-action="click"
             data-ga-label="skypixel-banner_SkyCity9-shoton" aria-label="9 周年影像大赛" tabindex="-1"
             class="skypixel-banner-link ga-data" target="_blank">
-              <div class="slide-video-poster" th:style="'background-image: url('+@{${swiper.image}}+');'">
+              <div class="slide-video-poster" th:style="'background-image: url(${swiper.image});'">
               </div><video data-dps-name="default_" name="media" muted="" loop="" title="9 周年影像大赛"
                 class="slide-grid-video slide-grid-content dps-cms">
                 <source
-                  data-layzr-src="https://terra-1-g.djicdn.com/851d20f7b9f64838a34cd02351370894/%E5%A4%A9%E7%A9%BA%E4%B9%8B%E5%9F%8E%209%20%E5%91%A8%E5%B9%B4%E5%BD%B1%E5%83%8F%E5%A4%A7%E8%B5%9B/1124.mp4"
+                  data-layzr-src=""
                   type="video/mp4; codecs=&quot;avc1.4D401E, mp4a.40.2&quot;" th:src="${swiper.video}">
               </video>
             </a>

@@ -1,7 +1,7 @@
 <nav id="site-header" class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-white">
   <div class="container justify-content-between" id="site-header-container">
       <div class="site-header-logo">
-          <a class="navbar-brand navbar-my-logo" href="./"><img th:if="${not #strings.isEmpty(theme.config.company.logo)}" th:src="${theme.config.company.logo}" alt=""
+          <a class="navbar-brand navbar-my-logo" th:href="@{/}"><img th:if="${not #strings.isEmpty(theme.config.company.logo)}" th:src="${theme.config.company.logo}" alt=""
                   class="img-fluid"></a>
       </div>
 
@@ -35,14 +35,14 @@
 
               <li class="nav-item">
                   <a data-ga-category="pc_nav_V2_hover" data-ga-action="click" data-ga-label="other-register"
-                      href="/console"
+                      th:href="@{/console}"
                       class="nav-link text-white" target="_blank"><i class="far fa-user"></i></a>
               </li>
 
               <li class="nav-item" id="top-qrcode">
                   <div class="btn-group btn-action-label position-relative" role="group" aria-label="Like">
                       <button type="button" class="btn btn-sm  btn-action"
-                          style="background-color: #0070d5 !important;">
+                          th:style="'background-color: #0070d5 !important;'">
                           <i class="fas fa-shopping-basket text-white"></i>
                           <span class="text-white">商城</span>
                       </button>

@@ -8,124 +8,11 @@ th:replace="~{modules/layout :: html(title = ${site.title}, hero = null, content
 
 <th:block th:fragment="content">
   <!-- 首页轮播 -->
-       <th:block th:replace="~{modules/index-swiper}"/>
+    <th:block th:replace="~{modules/index-swiper}"/>
 
     <main class="main">
-      <!-- 主要产品展示 -->
-        <section class="slice bg-white bg-cover bg-size--cover mx-4 ">
-            <!-- <span class="mask bg-tertiary alpha-9"></span> -->
-            <div class="container-xl row">
-                <!-- <div class="row cols-xs-space cols-sm-space cols-md-space"> -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-dark alpha-container text-white border-0 overflow-hidden"
-                        style="height: 650px;">
-                        <a href="#" target="_blank">
-                            <div class="card-img-bg" th:style="'background-image: url('+@{/assets/images/17.png}+');'"></div>
-                            <!-- <span class="mask bg-dark alpha-5 alpha-4--hover"></span> -->
-                            <div class="card-body px-5 py-5 text-right">
-                                <div style="min-height: 200px;">
-                                    <h3 class="heading h1 text-white mb-3"
-                                        th:style="'background: url('+@{/assets/images/product_logo.png}+') no-repeat right;height: 55px;'">
-                                    </h3>
-                                    <p class="mt-4 mb-1 h2 text-dark lh-180">
-                                        单桶微压循环
-                                    </p>
-                                    <p class="mb-1 h2 text-dark lh-180">
-                                        全自动煎药包装一体机
-                                    </p>
-                                </div>
-                                <span href="#" class="text-dark h3 text-uppercase font-weight-500">
-                                    了解更多
-                                    <i class="fas fa-arrow-right ml-2"></i>
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-dark alpha-container text-white border-0 overflow-hidden"
-                        style="height: 650px;">
-                        <a href="#" target="_blank">
-                            <div class="card-img-bg" th:style="'background-image: url('+@{/assets/images/dc9e6.png}+');'"></div>
-                            <!-- <span class="mask bg-dark alpha-5 alpha-4--hover"></span> -->
-                            <div class="card-body px-5 py-5 text-right">
-                                <div style="min-height: 200px;">
-                                    <h3 class="heading h1 text-white mb-3"
-                                        th:style="'background: url('+@{/assets/images/product_logo.png}+') no-repeat right;height: 55px;'">
-                                    </h3>
-                                    <p class="mt-4 mb-1 h2 text-dark lh-180">
-                                        全自动 牵条型
-                                    </p>
-                                    <p class="mb-1 h2 text-dark lh-180">
-                                        全新升级大型中药制丸机
-                                    </p>
-                                </div>
-                                <span href="#" class="text-dark h3 text-uppercase font-weight-500">
-                                    了解更多
-                                    <i class="fas fa-arrow-right ml-2"></i>
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-dark alpha-container text-white border-0 overflow-hidden"
-                        style="height: 650px;">
-                        <a href="#" target="_blank">
-                            <div class="card-img-bg" th:style="'background-image: url('+@{/assets/images/19.png}+');'"></div>
-                            <!-- <span class="mask bg-dark alpha-5 alpha-4--hover"></span> -->
-                            <div class="card-body px-5 py-5 text-center">
-                                <div style="min-height: 200px;">
-                                    <h3 class="heading h1 text-white mb-3"
-                                        th:style="'background: url('+@{/assets/images/product_logo.png}+') no-repeat center;height: 55px;'">
-                                    </h3>
-                                    <p class="mt-4 mb-1 h2 text-dark lh-180">
-                                        全能切片 高效工作
-                                    </p>
-                                    <p class="mb-1 h2 text-dark lh-180">
-                                        中药材小型切片机
-                                    </p>
-                                </div>
-                                <span href="#" class="text-dark h3 text-uppercase font-weight-500">
-                                    了解更多
-                                    <i class="fas fa-arrow-right ml-2"></i>
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-dark alpha-container text-white border-0 overflow-hidden"
-                        style="height: 650px;">
-                        <a href="#" target="_blank">
-                            <div class="card-img-bg" th:style="'background-image: url('+@{/assets/images/20.png}+');'"></div>
-                            <!-- <span class="mask bg-dark alpha-5 alpha-4--hover"></span> -->
-                            <div class="card-body px-5 py-5 text-center">
-                                <div style="min-height: 200px;">
-                                    <h3 class="heading h1 text-white mb-3"
-                                        th:style="'background: url('+@{/assets/images/product_logo.png}+') no-repeat center;height: 55px;'">
-                                    </h3>
-                                    <p class="mt-4 mb-1 h2 text-dark lh-180">
-                                        多功能轻松粉碎&研磨
-                                    </p>
-                                    <p class="mb-1 h2 text-dark lh-180">
-                                        中药材小型切片机
-                                    </p>
-                                </div>
-                                <span href="#" class="text-dark h3 text-uppercase font-weight-500">
-                                    了解更多
-                                    <i class="fas fa-arrow-right ml-2"></i>
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- </div> -->
-            </div>
-        </section>
+        <!-- 主要产品展示 -->
+        <th:block th:replace="~{modules/index-main-product}" />
 
         <!-- 视频展示 -->
         <th:block  th:replace="~{modules/index-video}"/>
@@ -227,21 +114,21 @@ th:replace="~{modules/layout :: html(title = ${site.title}, hero = null, content
                             <div>
                                 <img th:src="@{/assets/images/24.png}" alt="" class="mb-3 img-fluid">
                                 <p class="h3">购买渠道</p>
-                                <a href="" class="h6">了解更多>></a>
+                                <a th:href="@{/shop}" class="h6">了解更多>></a>
                             </div>
                         </div>
                         <div class="col-lg-4 text-center row justify-content-center align-items-center">
                             <div>
                                 <img th:src="@{/assets/images/25.png}" alt="" class="mb-3 img-fluid">
                                 <p class="h3">帮助与支持</p>
-                                <a href="" class="h6">了解更多>></a>
+                                <a th:href="@{/categories/notice}" class="h6">了解更多>></a>
                             </div>
                         </div>
                         <div class="col-lg-4 text-center row justify-content-center align-items-center">
                             <div>
                                 <img th:src="@{/assets/images/26.png}" alt="" class="mb-3 img-fluid">
                                 <p class="h3">企业介绍</p>
-                                <a href="" class="h6">了解更多>></a>
+                                <a th:href="@{/about}" class="h6">了解更多>></a>
                             </div>
                         </div>
                     </div>

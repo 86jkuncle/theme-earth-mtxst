@@ -9,16 +9,20 @@ spec:
       formSchema:
         - $formkit: repeater
           name: swiper_image
-          label: 首页轮播图片
+          label: 首页轮播图片(最少添加三张,否则会导致首页样式变形)
           value: []
           children:
             - $formkit: attachment
               name: img
               label: 轮播图片
+            - $formkit: text
+              name: url
+              label: 跳转地址(跳转到具体的产品页面,需要先添加产品)
+              value: /
 
         - $formkit: repeater
           name: swiper_video
-          label: 首页轮播视频
+          label: 首页轮播视频和视频缩略图(最少三个,否则会导致首页样式变形)
           value: []
           children:
             - $formkit: attachment
@@ -27,18 +31,34 @@ spec:
             - $formkit: attachment
               name: video
               label: 视频
+            - $formkit: text
+              name: url
+              label: 跳转地址(跳转到具体的产品页面,需要先添加产品)
+              value: /
 
-    - group: sidebar
-      label: 侧边栏
-      formSchema:
-        - $formkit: group
-          name: profile
-          value:
-            logo:
+        - $formkit: repeater
+          name: productlist
+          label: 主要产品图片及介绍(最少两个产品,否则会导致首页样式变形)
+          value: []
           children:
             - $formkit: attachment
-              name: logo
-              label: 站点资料 Logo
+              name: pro_img
+              label: 产品图片
+            
+            - $formkit: text
+              name: pro_desc
+              label: 产品主特性说明
+              value: 单桶微压循环
+
+            - $formkit: text
+              name: pro_subDesc
+              label: 产品次要特性说明
+              value: 全自动煎药包装一体机
+            
+            - $formkit: text
+              name: pro_url
+              label: 跳转链接(跳转到具体的产品页面,需要先添加产品)
+              value: /
 
     - group: beian
       label: 备案设置
@@ -92,29 +112,38 @@ spec:
       formSchema:
         - $formkit: repeater
           name: notice_jy_img
-          label: 煎药机图片
+          label: 煎药机图片(建议最少添加三张)
           value: []
           children:
             - $formkit: attachment
               name: img
               label: 图片
+            - $formkit: text
+              name: url
+              label: 跳转链接(跳转到具体的产品页面,需要先添加产品)
 
         - $formkit: repeater
           name: notice_zw_img
-          label: 制丸机图片
+          label: 制丸机图片(建议最少添加三张)
           value: []
           children:
             - $formkit: attachment
               name: img
               label: 图片
+            - $formkit: text
+              name: url
+              label: 跳转链接(跳转到具体的产品页面,需要先添加产品)
         
         - $formkit: repeater
           name: notice_fs_img
-          label: 粉碎机图片
+          label: 粉碎机图片(建议最少添加三张)
           value: []
           children:
             - $formkit: attachment
               name: img
               label: 图片
+            - $formkit: text
+              name: url
+              label: 跳转链接(跳转到具体的产品页面,需要先添加产品)
 
 
