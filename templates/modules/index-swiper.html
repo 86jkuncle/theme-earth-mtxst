@@ -3,9 +3,13 @@
   <div class="swiper-wrapper" th:with="swiper_images = ${theme.config.layout.swiper_image}">
     
     <th:block th:each="swiper_image : ${swiper_images}">
-      <a th:href="@{${swiper_image.url}}">
-      <div class="swiper-slide"><img th:src="${swiper_image.img}" alt=""></div>
-    </a>
+      
+      <div class="swiper-slide">
+        <a th:href="@{${swiper_image.url}}">
+        <img th:src="${swiper_image.img}" alt="">
+      </a>
+      </div>
+    
     </th:block>
       <!-- <div class="swiper-slide"><img th:src="@{/assets/images/20231228175200.png}" alt=""></div>
       <div class="swiper-slide"><img th:src="@{/assets/images/dj1.jpg}" alt=""></div>
