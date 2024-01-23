@@ -6,7 +6,7 @@ spec:
   displayName: mtxst
   author:
     name: mtxst
-    website: https://www.lybaobei.com
+    website: https://www.cszcyl.cn
   description:  一个医疗器械行业相关的主题
   logo: https://halo.run/logo
   website: https://www.cszcyl.cn
@@ -39,5 +39,5 @@ spec:
         description: 文章详情模板
         screenshot:
         file: post_detail.html
-  version: 1.0.0
+  version: 1.0.1
   require: ">=2.11.0"
