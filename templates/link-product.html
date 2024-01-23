@@ -21,7 +21,7 @@
     </section>
 
     <section class="slice slice-lg bg-secondary  bg-size--contain"
-      th:style="'background-image: url('+@{/assets/images/img-1.png}+'); background-position: center 10%;'">
+      th:style="'background-image: url('+@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/img-1.png}+'); background-position: center 10%;'">
       <!-- <span class="mask bg-primary alpha-7"></span> -->
       <div class="container text-center">
         <div class="row cols-xs-space cols-sm-space cols-md-space">
@@ -44,7 +44,7 @@
         </div>
         <div class="row cols-xs-space cols-sm-space cols-md-space" th:if="${not #strings.isEmpty(link[0].spec.videoSrc)}">
           <div class="col-lg-12">
-            <!-- <img class="rounded img-fluid" src="./assets/img/product/video.png" alt="Image description"> -->
+            <!-- <img class="rounded img-fluid" src=".https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/img/product/video.png" alt="Image description"> -->
             <video class="w-100" th:src="${link[0].spec.videoSrc}" muted controls loop></video>
           </div>
         </div>

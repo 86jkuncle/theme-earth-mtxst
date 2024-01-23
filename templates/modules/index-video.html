@@ -17,7 +17,7 @@
             th:href="@{${swiper.url}}" data-ga-category="pc-homepage" data-ga-action="click"
             data-ga-label="skypixel-banner_SkyCity9-shoton" aria-label="9 周年影像大赛" tabindex="-1"
             class="skypixel-banner-link ga-data" target="_blank">
-              <div class="slide-video-poster" th:style="'background-image: url(${swiper.image});'">
+              <div class="slide-video-poster" th:style="|background-image: url(${swiper.image});|">
               </div><video data-dps-name="default_" name="media" muted="" loop="" title="9 周年影像大赛"
                 class="slide-grid-video slide-grid-content dps-cms">
                 <source
@@ -29,19 +29,12 @@
         </th:block>
 
       </div>
-      <div class="swiper-pagination-box">
-        <div class="swiper-pagination-bullet">
-          <div class="progress"></div>
-        </div>
-        <div class="swiper-pagination-bullet">
-          <div class="progress"></div>
-        </div>
-        <div class="swiper-pagination-bullet">
-          <div class="progress"></div>
-        </div>
-        <div class="swiper-pagination-bullet">
-          <div class="progress"></div>
-        </div>
+      <div class="swiper-pagination-box" th:with="swiper_videos = ${theme.config.layout.swiper_video}">
+        <th:block th:each="swiper : ${swiper_videos}">
+          <div class="swiper-pagination-bullet">
+            <div class="progress"></div>
+          </div>
+        </th:block>
       </div>
       <div class="swiper-prev-area"></div>
       <div class="swiper-next-area"> </div>
