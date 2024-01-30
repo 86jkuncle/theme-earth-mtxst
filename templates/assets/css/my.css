@@ -18,7 +18,6 @@
 } */
 
 
-
 #site-header {
   position: absolute;
   width: 100%;
@@ -27,7 +26,8 @@
   left: 0;
   z-index: 900;
   padding:2.5rem;
-  min-width: 1240px;
+  min-width: 1230px;
+  background: transparent !important;
 }
 
 #site-header.sticky-nav {
@@ -80,8 +80,9 @@
 
 /* 轮播图设置 */
 .swiper {
+  /* margin-top: -20px; */
   width: 100%;
-  height: 800px;
+  height: 1000px;
   /* height: 100%; */
 }
 
@@ -97,7 +98,8 @@
 .mySwiper .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  height: 1000px;
   object-fit: cover;
 }
 
@@ -106,6 +108,7 @@
 }
 
 /* 顶部导航字体颜色 (首页轮播图背景色为黑色,所以导航颜色初始化为白色,才能看到菜单)*/
+/* 首页轮播需要满屏,导致背景没有透明,导航不能显示 */
 #navbar_main .nav-link {
   color: #fff;
 }
