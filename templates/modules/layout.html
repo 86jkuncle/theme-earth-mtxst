@@ -12,9 +12,9 @@
   <body>
     <th:block th:replace="~{modules/header}" />
 
-    <main class="main">
+    
       <th:block th:replace="${content}" />
-    </main>
+    
     <th:block th:replace="~{modules/footer}" />
     <th:block th:if="${footer != null}">
       <th:block th:replace="${footer}" />
