@@ -1,5 +1,5 @@
 <!-- Swiper -->
-<div class="swiper mySwiper mb-3" th:if="${not #lists.isEmpty(theme.config.layout.swiper_image)}">
+<div class="swiper mySwiper mb-18" th:if="${not #lists.isEmpty(theme.config.layout.swiper_image)}">
   <div class="swiper-wrapper" th:with="swiper_images = ${theme.config.layout.swiper_image}">
     
     <th:block th:each="swiper_image : ${swiper_images}">

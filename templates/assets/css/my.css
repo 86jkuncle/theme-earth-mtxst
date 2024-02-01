@@ -1,4 +1,35 @@
 
+.container-my {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto
+}
+
+@media (min-width: 576px) {
+  .container-my {
+      max-width:540px
+  }
+}
+
+@media (min-width: 768px) {
+  .container-my {
+      max-width:720px
+  }
+}
+
+@media (min-width: 992px) {
+  .container-my {
+      max-width:960px
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-my {
+      max-width:1234px
+  }
+}
 
 /*.navbar-collapse .topnav-qrcode::after {*/
 /*  content: '微信扫一扫';*/
@@ -75,6 +106,15 @@
   display: flex;
   -moz-justify-content: space-between;
   justify-content: space-between;
+}
+
+.mb-18 {
+  margin-bottom:1.8rem !important;
+}
+
+.mx-18 {
+  margin-left: 1.8rem !important;
+  margin-right: 1.8rem !important;
 }
 
 
