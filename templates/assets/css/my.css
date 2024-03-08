@@ -31,6 +31,20 @@
   }
 }
 
+.w-39 {
+  width: 39% !important;
+}
+
+.w-46 {
+  width: 46% !important;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+
+
 /*.navbar-collapse .topnav-qrcode::after {*/
 /*  content: '微信扫一扫';*/
 /*  display: block;*/
