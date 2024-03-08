@@ -8,10 +8,12 @@
     <!-- <div th:text="${link}"></div> -->
 
 
+    <!-- 右边产品小程序二维码 -->
     <div class="position-fixed p-2" th:style="'z-index: 99;width: 150px;right:0;top:38vh'" th:if="${not #strings.isEmpty(link[0].spec.qrcode)}">
       <img th:src="${link[0].spec.qrcode}" alt="" class="img-thumbnail">
     </div>
 
+    <!-- 顶部全屏图片 -->
     <!-- <span th:text="${link.spec.topImage}"></span> -->
     <section  th:if="${not #strings.isEmpty(link[0].spec.topImage)}" class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" th:style="|background-image:url(${link[0].spec.topImage});height: 100vh;
     background-position: center;
@@ -20,27 +22,115 @@
 
     </section>
 
-    <section class="slice slice-lg bg-secondary  bg-size--contain"
-      th:style="'background-image: url('+@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/img-1.png}+'); background-position: center 10%;'">
+    <!-- 顶部概要说明 -->
+    <section class="slice slice-lg  bg-size--contain" th:style="'background-color:#f7f9fa'">
       <!-- <span class="mask bg-primary alpha-7"></span> -->
       <div class="container text-center">
         <div class="row cols-xs-space cols-sm-space cols-md-space">
           <div class="col-12" th:if="${not #strings.isEmpty(link[0].spec.topTitle)}">
-            <h2 class="heading text-dark h1 strong-600" th:text="${link[0].spec.topTitle}">
+            <h2 class="heading text-dark h3 strong-600" th:text="${link[0].spec.topTitle}">
               
             </h2>
           </div>
         </div>
       </div>
+
+      <!-- 技术参数 -->
+      <div class="container-my">
+        <div class="p-5" th:if="${not #lists.isEmpty(link[0].spec.techList)}">
+
+          <div class="row justify-content-center align-items-center" th:with="techParaList = ${link[0].spec.techList}">
+            <div class="col-lg-4 text-center row justify-content-center align-items-center" th:each=" techPara,status : ${techParaList}"
+            th:classappend="${status.index <= 2}?'mb-5':''">
+              <div>
+                <img th:src="${techPara.image}" alt="" class="mb-3 img-fluid" th:style="'height:80px;'">
+                <p class="h3" th:text="${techPara.name}" th:style="'font-size:20px;'"></p>
+                <a href="" class="h3 text-primary" th:text="${techPara.value}"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="slice slice-sm">
+
+    <!-- 特色标题,现在不需要了 -->
+    <!-- <section class="slice slice-sm" th:if="${not #strings.isEmpty(link[0].spec.featureTitle)}">
       <div class="container">
-        <div class="text-center" th:if="${not #strings.isEmpty(link[0].spec.videoTitle)}">
-          <h2 class="heading display-3 font-weight-bold text-primary" th:text="${link[0].spec.videoTitle}"></h2>
+        <div class="text-center">
+          <h2 class="heading display-3 font-weight-bold text-primary" th:text="${link[0].spec.featureTitle}"></h2>
         </div>
-        <div class="text-center" th:if="${not #strings.isEmpty(link[0].spec.videoSubTitle)}">
-          <h3 class="heading h3" th:text="${link[0].spec.videoSubTitle}"></h3>
+      </div>
+    </section> -->
+
+
+    <!-- 特色说明,需要修改样式 -->
+    <th:block th:with="featureList = ${link[0].spec.featureList}" th:if="${not #lists.isEmpty(link[0].spec.featureList)}">
+
+      <section class="slice slice-sm" th:each=" feature ,status: ${featureList}">
+        <div class="container w-39">
+          <div class="d-flex flex-column cols-xs-space cols-sm-space align-items-center">
+
+            <p class="text-dark h1 text-bold" th:text="${feature.desc}"></p>
+            <p class="h5 mt-2 text-center" th:text="${feature.subDesc}" th:style="'color:#00000065'"></p>
+            <div><img th:src="${feature.image}" alt="" class="img-center img-fluid rounded"></div>
+
+            <!-- <div class="col-md-6"
+            th:classappend="|${status.index == 1 ? 'order-md-2 ml-lg-auto' : ''}|">
+              <img th:src="${feature.image}" class="img-center img-fluid rounded z-depth-3">
+            </div>
+
+            <div class="col-md-6 col-lg-5  bg-secondary p-5"
+            th:classappend="|${status.index == 1 ? 'order-md-1' : 'ml-lg-auto'}|">
+              <div class="pr-md-4">
+                <h3 class="heading h3" th:text="${feature.desc}">
+                  
+                </h3>
+                <p class="lead text-gray mt-4"  th:style="'white-space: pre-wrap;'" th:text="${feature.subDesc}">
+                </p>
+              </div>
+            </div> -->
+
+          </div>
+        </div>
+      </section>
+
+    </th:block>
+
+    <!-- 双栏 -->
+    <section class="slice slice-sm" th:if="${link[0].spec.extraInfo != null}">
+      <div class="container d-flex flex-column">
+        <p th:text="${link[0].spec.extraInfo.extraMainTitle}" class="h1 text-center display-4 font-weight-bold"></p>
+        <p th:text="${link[0].spec.extraInfo.extraMainSubTitle}" class="text-center h4 font-weight-light mb-5"></p>
+
+        <div class="container-my d-flex justify-content-between">
+          <div class="d-flex flex-column col-5"  th:style="'background-color:#f7f9fa;'">
+            <img th:src="${link[0].spec.extraInfo.firstImage}" class="img-fluid mb-4">
+            <p th:text="${link[0].spec.extraInfo.firstDesc}" class="h6 font-weight-light"></p>
+          </div>
+          <div class="d-flex flex-column col-5" th:style="'background-color:#f7f9fa;'">
+            <img th:src="${link[0].spec.extraInfo.secondImage}" class="img-fluid mb-4">
+            <p th:text="${link[0].spec.extraInfo.secondDesc}" class="h6 font-weight-light"></p>
+          </div>
+        </div>
+
+        
+        
+
+        
+        
+      </div>
+    </section>
+
+
+    <!-- 产品视频 -->
+    <section class="slice slice-sm">
+      <div class="container d-flex flex-column align-items-center">
+        <div class="text-center" th:if="${not #strings.isEmpty(link[0].spec.videoTitle)}">
+          <h2 class="heading h1 font-weight-bold text-dark" th:text="${link[0].spec.videoTitle}"></h2>
+        </div>
+        <div class="text-center w-50 mt-2" th:if="${not #strings.isEmpty(link[0].spec.videoSubTitle)}">
+          <h3 class="heading h5" th:text="${link[0].spec.videoSubTitle}"></h3>
         </div>
         <div class="row cols-xs-space cols-sm-space cols-md-space" th:if="${not #strings.isEmpty(link[0].spec.videoSrc)}">
           <div class="col-lg-12">
@@ -51,92 +141,44 @@
       </div>
     </section>
 
-    <section class="slice slice-sm" th:if="${not #strings.isEmpty(link[0].spec.featureTitle)}">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="heading display-3 font-weight-bold text-primary" th:text="${link[0].spec.featureTitle}"></h2>
-        </div>
-      </div>
-    </section>
 
-    <th:block th:with="featureList = ${link[0].spec.featureList}" th:if="${not #lists.isEmpty(link[0].spec.featureList)}">
-
-      <section class="slice slice-sm" th:each=" feature ,status: ${featureList}">
-        <div class="container">
-          <div class="row cols-xs-space cols-sm-space align-items-center">
-            <div class="col-md-6"
-            th:classappend="|${status.index == 1 ? 'order-md-2 ml-lg-auto' : ''}|">
-              <img th:src="${feature.image}" class="img-center img-fluid rounded z-depth-3">
-            </div>
-            <div class="col-md-6 col-lg-5  bg-secondary p-5"
-            th:classappend="|${status.index == 1 ? 'order-md-1' : 'ml-lg-auto'}|">
-              <div class="pr-md-4">
-                <h3 class="heading h3" th:text="${feature.desc}">
-                  
-                </h3>
-                <p class="lead text-gray mt-4"  th:style="'white-space: pre-wrap;'" th:text="${feature.subDesc}">
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-  
-      </section>
-
-    </th:block>
-
-
-    <section class="slice slice-sm">
+    <!-- <section class="slice slice-sm">
       <div class="container">
         <div class="text-center">
           <h2 class="heading display-3 font-weight-bold text-primary">技术参数</h2>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="slice slice-sm" data-delimiter="0" >
-      <!-- data-spotlight="fullscreen" style="background-image: url('./asset/img/product/微信图片_20230911141738\ 拷贝\ 3.png');" -->
+    
+    <!-- 底部说明,需要修改样式 -->
+    <section class="slice slice-sm" data-delimiter="0">
       <div class="container">
-
-        <div class="row-wrapper bg-secondary p-5" th:if="${not #lists.isEmpty(link[0].spec.techList)}">
-
-          <div class="row justify-content-center align-items-center" th:with="techParaList = ${link[0].spec.techList}">
-            <div class="col-lg-4 text-center row justify-content-center align-items-center" th:each=" techPara,status : ${techParaList}"
-            th:classappend="${status.index <= 3}?'mb-5':''">
-              <div>
-                <img th:src="${techPara.image}" alt="" class="mb-3 img-fluid">
-                <p class="h3" th:text="${techPara.name}"></p>
-                <a href="" class="h3 text-primary" th:text="${techPara.value}"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slice slice-xl" data-delimiter="0">
-      <div class="container">
-        <h3 class="text-center mb-5" th:text="${link[0].spec.name}" th:if="${not #strings.isEmpty(link[0].spec.name)}"></h3>
+        <h3 class="text-center mb-2" th:text="${link[0].spec.name}" th:if="${not #strings.isEmpty(link[0].spec.name)}"></h3>
+        
         <div class="row-wrapper" th:if="${not #lists.isEmpty(link[0].spec.footFeature.featureParamList)}">
-          <div class="row justify-content-center align-items-center bg-secondary p-5">
-            <div class="col-3"><img th:src="${link[0].spec.footFeature.image}"
-                class="img-center img-fluid rounded"></div>
-            <div class="col-3">
-              <ul class="navbar" th:with = "footTxtParam = ${link[0].spec.footFeature.featureParamList}">
-                <li class="nav-item h6" th:style="'list-style: none;'" th:each=" footTxt : ${footTxtParam} " th:text="${footTxt.desc}"></li>
+          <div class="row flex-column align-items-center p-5">
+            <div><img th:src="${link[0].spec.footFeature.image}"
+                class="img-center img-fluid rounded">
+              </div>
+
+              <ul class="navbar mt-3 w-40" th:with = "footTxtParam = ${link[0].spec.footFeature.featureParamList}">
+                <li  class="nav-item h6 border border-dark p-2" th:style="'font-size:12px;list-style: none;color:#00000065'" th:each=" footTxt : ${footTxtParam} " th:text="${footTxt.desc}"></li>
               </ul>
 
-              <button type="button" class="btn btn-primary btn-icon-label">
-                <span class="btn-inner--text">立即购买</span>
-                <span class="btn-inner--icon"><i class="fas fa-shopping-cart"></i></span>
+              <p th:text="${link[0].spec.footFeature.price}" class="h4 mb-3"></p>
+
+         
+              
+
+              <button type="button" class="btn btn-dark btn-icon-label">
+                <span class="btn-inner--text h5 text-white">立即购买</span>
+                <!-- <span class="btn-inner--icon"><i class="fas fa-shopping-cart"></i></span> -->
               </button>
-
-
-
-            </div>
+           
           </div>
         </div>
+
     </section>
   </th:block>
 </html>
