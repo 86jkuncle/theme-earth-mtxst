@@ -25,3 +25,19 @@ $(window).on("scroll", function(e){
     // console.log($(document).scrollTop());
     // console.log(parseInt($("body").css("margin-top") || 0))
 })
+
+var footFeatureUl = $(".foot-feature-ul");
+
+$(window).on("load",function(e){
+    if(footFeatureUl){
+        let ulSubLength = footFeatureUl.children().length
+        console.log(ulSubLength);
+        if(ulSubLength === 6){
+            footFeatureUl.removeClass("w-50");
+            footFeatureUl.addClass("w-36");
+        }else{
+            footFeatureUl.removeClass("w-36");
+            footFeatureUl.addClass("w-50");
+        }
+    }
+})

@@ -71,8 +71,8 @@
         <div class="container w-39">
           <div class="d-flex flex-column cols-xs-space cols-sm-space align-items-center">
 
-            <p class="text-dark h1 text-bold" th:text="${feature.desc}"></p>
-            <p class="h5 mt-2 text-center" th:text="${feature.subDesc}" th:style="'color:#00000065'"></p>
+            <p class="text-dark h1 text-bold mb-3" th:text="${feature.desc}"></p>
+            <p class="h5 text-center mb-3" th:text="${feature.subDesc}" th:style="'color:#00000065'"></p>
             <div><img th:src="${feature.image}" alt="" class="img-center img-fluid rounded"></div>
 
             <!-- <div class="col-md-6"
@@ -100,15 +100,15 @@
     <!-- 双栏 -->
     <section class="slice slice-sm" th:if="${link[0].spec.extraInfo != null}">
       <div class="container d-flex flex-column">
-        <p th:text="${link[0].spec.extraInfo.extraMainTitle}" class="h1 text-center display-4 font-weight-bold"></p>
-        <p th:text="${link[0].spec.extraInfo.extraMainSubTitle}" class="text-center h4 font-weight-light mb-5"></p>
+        <p th:text="${link[0].spec.extraInfo.extraMainTitle}" th:if="${link[0].spec.extraInfo.extraMainTitle != null}" class="h1 text-center display-4 font-weight-bold mb-3"></p>
+        <p th:text="${link[0].spec.extraInfo.extraMainSubTitle}"  th:if="${link[0].spec.extraInfo.extraMainSubTitle != null}" class="text-center h4 font-weight-light mb-3"></p>
 
         <div class="container-my d-flex justify-content-between">
-          <div class="d-flex flex-column col-5"  th:style="'background-color:#f7f9fa;'">
+          <div class="d-flex flex-column col-5" th:if="${link[0].spec.extraInfo.firstImage != null}" th:style="'background-color:#f7f9fa;'">
             <img th:src="${link[0].spec.extraInfo.firstImage}" class="img-fluid mb-4">
             <p th:text="${link[0].spec.extraInfo.firstDesc}" class="h6 font-weight-light"></p>
           </div>
-          <div class="d-flex flex-column col-5" th:style="'background-color:#f7f9fa;'">
+          <div class="d-flex flex-column col-5"  th:if="${link[0].spec.extraInfo.secondImage != null}" th:style="'background-color:#f7f9fa;'">
             <img th:src="${link[0].spec.extraInfo.secondImage}" class="img-fluid mb-4">
             <p th:text="${link[0].spec.extraInfo.secondDesc}" class="h6 font-weight-light"></p>
           </div>
@@ -126,10 +126,10 @@
     <!-- 产品视频 -->
     <section class="slice slice-sm">
       <div class="container d-flex flex-column align-items-center">
-        <div class="text-center" th:if="${not #strings.isEmpty(link[0].spec.videoTitle)}">
+        <div class="text-center mb-3" th:if="${not #strings.isEmpty(link[0].spec.videoTitle)}">
           <h2 class="heading h1 font-weight-bold text-dark" th:text="${link[0].spec.videoTitle}"></h2>
         </div>
-        <div class="text-center w-50 mt-2" th:if="${not #strings.isEmpty(link[0].spec.videoSubTitle)}">
+        <div class="text-center w-50 mb-3" th:if="${not #strings.isEmpty(link[0].spec.videoSubTitle)}">
           <h3 class="heading h5" th:text="${link[0].spec.videoSubTitle}"></h3>
         </div>
         <div class="row cols-xs-space cols-sm-space cols-md-space" th:if="${not #strings.isEmpty(link[0].spec.videoSrc)}">
@@ -162,7 +162,8 @@
                 class="img-center img-fluid rounded">
               </div>
 
-              <ul class="navbar mt-3 w-40" th:with = "footTxtParam = ${link[0].spec.footFeature.featureParamList}">
+              <!-- 底部的标签说明,样式改这里 -->
+              <ul class="navbar mt-3 w-50 foot-feature-ul" th:with = "footTxtParam = ${link[0].spec.footFeature.featureParamList}">
                 <li  class="nav-item h6 border border-dark p-2" th:style="'font-size:12px;list-style: none;color:#00000065'" th:each=" footTxt : ${footTxtParam} " th:text="${footTxt.desc}"></li>
               </ul>
 
