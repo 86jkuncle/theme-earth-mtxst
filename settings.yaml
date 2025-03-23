@@ -91,7 +91,7 @@ spec:
         - $formkit: text
           name: tel
           label: 公司联系电话
-          value: 400-021-0988，0731-89576909
+          value: 400-021-0988
 
         - $formkit: text
           name: name
