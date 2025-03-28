@@ -12,6 +12,7 @@
                 th:text="${menuItem.status.displayName}"
                 th:target="${menuItem.spec.target?.value}"
                 th:if="${#lists.isEmpty(menuItem.children)}"
+                th:style="'padding:0.5rem 0.5rem;'"
                 ></a>
                 <th:block th:if="${not #lists.isEmpty(menuItem.children)}">
                     <a class="nav-link dropdown-toggle" href="#" role="button"  th:text="${menuItem.status.displayName}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
