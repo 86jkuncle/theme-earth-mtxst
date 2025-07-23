@@ -1,0 +1,65 @@
+<section class="slice" data-delimiter="0" th:if="${not #lists.isEmpty(theme.config.bottom_images.images_b)}">
+    <div class="container-my">
+        <div class="mb-md text-center">
+            <h3 class="heading h3">了解不同系统的老药师产品</h3>
+        </div>
+        <div class="row cols-xs-space cols-sm-space cols-md-space"  th:with="b_images = ${theme.config.bottom_images.images_b}">
+            <th:block th:each="img : ${b_images}">
+                <div class="col-lg-4">
+                    <div class="card" style="height: 480px;">
+                        <a href="#" target="_blank">
+                    
+                            <div class="card-img-bg" th:style="|background-image: url(${img.img});|">
+                                <span class="mask bg-dark alpha-5"></span>
+                                <div class="card-body text-center text-white position-relative pt-5"
+                                    style="z-index: 99999;">
+                                    <h3 class="heading h5 mb-2">
+                                        <span class="d-block text-white mb-2" th:text="${img.main_text}"></span>
+                                        <small class="text-white" th:text="${img.sec_text}">全自动智能煎药机</small>
+                                    </h3>
+                            
+                                    <a th:href="@{${img.link}}" target="_blank">
+                                        <span href="#" class="text-white text-uppercase font-weight-500">
+                                            了解更多
+                                            <i class="fas fa-arrow-right ml-2"></i>
+                                        </span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </th:block>
+
+             
+            <!-- 保留原始结构方便参考 -->
+            <!-- <div class="col-lg-4">
+                <div class="card" style="height: 480px;">
+                    <a href="#" target="_blank">
+                        "|background-image: url(${pro.pro_img});background-size: cover;|"
+                        <div class="card-img-bg" th:style="'background-image: url('+@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/21.png}+');'">
+                            <span class="mask bg-dark alpha-5"></span>
+                            <div class="card-body text-center text-white position-relative pt-5"
+                                style="z-index: 99999;">
+                                <h3 class="heading h5 mb-2">
+                                    <span class="d-block text-white mb-2">煎药机系列</span>
+                                    <small class="text-white">全自动智能煎药机</small>
+                                </h3>
+                                <a th:href="@{/}" target="_blank">
+                                    <span href="#" class="text-white text-uppercase font-weight-500">
+                                        了解更多
+                                        <i class="fas fa-arrow-right ml-2"></i>
+                                    </span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </a>
+
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</section>

@@ -4,6 +4,26 @@ metadata:
   name: theme-mtxst-setting
 spec:
   forms:
+    - group: bottom_images
+      label: 底部图片与文字
+      formSchema:
+        - $formkit: repeater
+          name: images_b
+          label: 底部图片与文字(最少添加三张,否则样式变形)
+          value: []
+          children:
+            - $formkit: attachment
+              name: img
+              label: 图片
+            - $formkit: text
+              name: main_text
+              label: 主标题
+            - $formkit: text
+              name: sec_text
+              label: 副标题
+            - $formkit: text
+              name: link
+              label: 跳转链接
     - group: layout
       label: 布局
       formSchema:

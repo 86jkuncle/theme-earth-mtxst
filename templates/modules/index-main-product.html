@@ -4,23 +4,23 @@
   <div class="container-xl row" th:with="prolist = ${theme.config.layout.productlist}">
       <!-- <div class="row cols-xs-space cols-sm-space cols-md-space"> -->
         <th:block th:each="pro : ${prolist}">
-          <div class="col-lg-6 mb-18" >
+          <div class="col-lg-6 mb-4 col-12 col-md-6" >
             <div class="card bg-dark alpha-container text-white border-0 overflow-hidden"
-                style="height: 900px;">
+            style="height: 900px;">
                 <a th:href="@{${pro.pro_url}}" target="_blank">
-                    <div class="card-img-bg" th:style="|background-image: url(${pro.pro_img});|"></div>
+                    <div class="card-img-bg" th:style="|background-image: url(${pro.pro_img});background-size: cover;|"></div>
                     <!-- <span class="mask bg-dark alpha-5 alpha-4--hover"></span> -->
                     <div class="card-body px-5 py-5 text-right">
                         <div style="min-height: 200px;">
                             <h3 class="heading h1 text-white mb-3"
-                                th:style="'background: url('+@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/product_logo.png}+') no-repeat right;height: 55px;'">
+                                th:style="'background: url('+@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/product_logo.png}+') no-repeat right;background-size: auto 55px;height: 55px;'">
                             </h3>
                             <p class="mt-4 mb-1 h2 text-dark lh-180" th:text="${pro.pro_desc}">
                             </p>
                             <p class="mb-1 h2 text-dark lh-180" th:text="${pro.pro_subDesc}">
                             </p>
                         </div>
-                        <span th:href="@{${pro.pro_url}}" class="text-dark h3 text-uppercase font-weight-500">
+                        <span th:href="@{${pro.pro_url}}" class="text-dark h3 text-uppercase font-weight-500 mx-auto">
                             了解更多
                             <i class="fas fa-arrow-right ml-2"></i>
                         </span>

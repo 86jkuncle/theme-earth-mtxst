@@ -17,93 +17,9 @@ th:replace="~{modules/layout :: html(title = ${site.title}, hero = null, content
         <!-- 视频展示 -->
         <th:block  th:replace="~{modules/index-video}"/>
 
-
-        <section class="slice" data-delimiter="0">
-            <div class="container-my">
-                <div class="mb-md text-center">
-                    <h3 class="heading h3">了解不同系统的老药师产品</h3>
-                </div>
-                <div class="row cols-xs-space cols-sm-space cols-md-space">
-                    <div class="col-lg-4">
-                        <div class="card" style="height: 480px;">
-                            <a href="#" target="_blank">
-                                <div class="card-img-bg" th:style="'background-image: url('+@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/21.png}+');'">
-                                    <span class="mask bg-dark alpha-5"></span>
-                                    <div class="card-body text-center text-white position-relative pt-5"
-                                        style="z-index: 99999;">
-                                        <h3 class="heading h5 mb-2">
-                                            <span class="d-block text-white mb-2">煎药机系列</span>
-                                            <small class="text-white">全自动智能煎药机</small>
-                                        </h3>
-                                        <a th:href="@{/}" target="_blank">
-                                            <span href="#" class="text-white text-uppercase font-weight-500">
-                                                了解更多
-                                                <i class="fas fa-arrow-right ml-2"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </a>
-                            <!-- <img src=".https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/21.png" class="card-img-top"> -->
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="card" style="height: 480px;">
-                            <a href="#" target="_blank">
-                                <div class="card-img-bg" th:style="'background-image: url('+@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/22.png}+');'">
-                                    <span class="mask bg-dark alpha-5"></span>
-                                    <div class="card-body text-center text-white position-relative pt-5"
-                                        style="z-index: 99999;">
-                                        <h3 class="heading h5 mb-2">
-                                            <span class="d-block text-white mb-2">制丸机系列</span>
-                                            <small class="text-white">全自动智能制丸机</small>
-                                        </h3>
-                                        <a th:href="@{/}" target="_blank">
-                                            <span href="#" class="text-white text-uppercase font-weight-500">
-                                                了解更多
-                                                <i class="fas fa-arrow-right ml-2"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </a>
-                            <!-- <img src=".https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/21.png" class="card-img-top"> -->
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="card" style="height: 480px;">
-                            <a href="#" target="_blank">
-                                <div class="card-img-bg" th:style="'background-image: url('+@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/23.png}+');'">
-                                    <span class="mask bg-dark alpha-5"></span>
-                                    <div class="card-body text-center text-white position-relative pt-5"
-                                        style="z-index: 99999;">
-                                        <h3 class="heading h5 mb-2">
-                                            <span class="d-block text-white mb-2">粉碎机系统</span>
-                                            <small class="text-white">全自动智能粉碎机</small>
-                                        </h3>
-                                        <a th:href="@{/}" target="_blank">
-                                            <span href="#" class="text-white text-uppercase font-weight-500">
-                                                了解更多
-                                                <i class="fas fa-arrow-right ml-2"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </a>
-                            <!-- <img src=".https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/images/21.png" class="card-img-top"> -->
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
+        <!-- 底部产品展示 -->
+        <th:block th:replace="~{modules/index-bottom-product}" />
 
         <section class="slice slice-sm" data-delimiter="0">
             <div class="container">
