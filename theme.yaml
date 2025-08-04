@@ -39,5 +39,5 @@ spec:
         description: 文章详情模板
         screenshot:
         file: post_detail.html
-  version: 1.0.10
+  version: 1.0.11
   require: ">=2.20.0"
