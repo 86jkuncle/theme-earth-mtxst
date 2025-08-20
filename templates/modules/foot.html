@@ -17,6 +17,6 @@
   <script th:src="@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/js/theme.js}"></script>
 <!-- 自定义js -->
 <script th:src="@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/js/my.js}"></script>
-<script th:src="@{https://wwwcszcylcn.oss-cn-hangzhou.aliyuncs.com/assets/js/video_swiper.js}"></script>
+<script th:src="@{/assets/js/video_swiper.js?v={version}(version=${theme.spec.version})}"></script>
 </th:block>
 </html>

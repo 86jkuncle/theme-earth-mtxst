@@ -18,7 +18,12 @@
             data-ga-label="skypixel-banner_SkyCity9-shoton" aria-label="9 周年影像大赛" tabindex="-1"
             class="skypixel-banner-link ga-data" target="_blank">
               <div class="slide-video-poster" th:style="|background-image: url(${swiper.image});|">
-              </div><video data-dps-name="default_" name="media" muted="" loop="" title="9 周年影像大赛"
+              </div><video data-dps-name="default_" name="media" muted
+              loop
+              autoplay
+              playsinline
+              controls
+              preload="metadata"
                 class="slide-grid-video slide-grid-content dps-cms">
                 <source
                   data-layzr-src=""

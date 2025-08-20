@@ -61,3 +61,108 @@ var o = $("#slide-contents")
                 },
             },
         });
+
+        // 修复视频 src 问题
+$(document).ready(function() {
+    // 等待 Swiper 初始化完成
+    setTimeout(function() {
+        // 修复所有视频的 src（从 source 标签获取）
+        $('.homepage-skypixel-module video').each(function() {
+            var source = $(this).find('source')[0];
+            if (source && !this.src) {
+                this.src = source.src;
+            }
+        });
+        
+        // 播放第一个视频
+        var firstVideo = $('.homepage-skypixel-module .swiper-slide-active video')[0];
+        if (firstVideo) {
+            firstVideo.play();
+        }
+    }, 500);
+});
+
+// 在 $(document).ready 内，Swiper 初始化代码之后添加
+
+// 自定义视频控制条
+function initVideoControls() {
+    // 移除原生控制条
+    $('.homepage-skypixel-module video').removeAttr('controls');
+    
+    // 添加自定义控制
+    $('.homepage-skypixel-module .swiper-slide').each(function() {
+        if ($(this).find('.video-controls').length > 0) return;
+        
+        $(this).append(`
+            <div class="video-controls">
+                <button class="ctrl-play">⏸️</button>
+                <button class="ctrl-mute">🔇</button>
+                <input class="ctrl-progress" type="range" min="0" max="100" value="0">
+                <span class="ctrl-time">0:00 / 0:00</span>
+            </div>
+        `);
+    });
+}
+
+// 时间格式化
+function formatTime(seconds) {
+    let mins = Math.floor(seconds / 60);
+    let secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+// 初始化控制条
+setTimeout(initVideoControls, 1000);
+
+// 播放/暂停
+$(document).on('click', '.ctrl-play', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    let video = $(this).closest('.swiper-slide').find('video')[0];
+    if (video.paused) {
+        video.play();
+        $(this).text('⏸️');
+    } else {
+        video.pause();
+        $(this).text('▶️');
+    }
+});
+
+// 静音控制
+$(document).on('click', '.ctrl-mute', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    let video = $(this).closest('.swiper-slide').find('video')[0];
+    video.muted = !video.muted;
+    $(this).text(video.muted ? '🔇' : '🔊');
+});
+
+// 进度条
+$(document).on('input', '.ctrl-progress', function(e) {
+    e.stopPropagation();
+    let video = $(this).closest('.swiper-slide').find('video')[0];
+    video.currentTime = (this.value / 100) * video.duration;
+});
+
+// 阻止冒泡
+$(document).on('click', '.video-controls', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+});
+
+// 更新进度
+setInterval(function() {
+    $('.homepage-skypixel-module .swiper-slide-active').each(function() {
+        let video = $(this).find('video')[0];
+        if (!video) return;
+        
+        let progress = (video.currentTime / video.duration) * 100 || 0;
+        $(this).find('.ctrl-progress').val(progress);
+        
+        let currentTime = formatTime(video.currentTime || 0);
+        let duration = formatTime(video.duration || 0);
+        $(this).find('.ctrl-time').text(`${currentTime} / ${duration}`);
+        
+        $(this).find('.ctrl-play').text(video.paused ? '▶️' : '⏸️');
+    });
+}, 100);
